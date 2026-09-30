@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>校园路线 | 遇见桂信科 · 桂林信息科技学院</title>
+<meta name="description" content="桂林信息科技学院互动校园路线图：可拖动的插画地图、三条主题路线、13个精选点位，带你逛遍桂信科。">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/polish.css">
+</head>
+<body>
+
+<div class="topbar" id="topbar">
+  <div class="container">
+    <span>🎓 2026 级新同学看过来！先在地图上把校园逛一遍，到校就是熟客 → <a href="#map">打开路线图</a></span>
+    <button class="tb-close" title="关闭" aria-label="关闭">✕</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="assets/img/logo-red.png" alt="桂林信息科技学院"></a>
+    <nav class="nav-menu">
+      <a href="index.html">首页</a>
+      <a href="about.html">走进信科</a>
+      <a href="majors.html">院系与专业</a>
+      <a href="honors.html">办学成果</a>
+      <a href="campus.html">校园相册</a>
+      <a href="route.html" class="active">校园路线</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+    <button class="nav-burger" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <img src="assets/img/gallery/fg-5.jpg" alt="桂林信息科技学院校园航拍">
+  <div class="container">
+    <h1>校园路线</h1>
+    <div class="crumb"><a href="index.html">首页</a> / 校园路线</div>
+    <p class="p-sub">一张可拖动的插画地图、三条主题路线、13 个精选点位 —— 先云游一圈，进校就是熟客。</p>
+  </div>
+</section>
+
+<!-- 地图主区 -->
+<section class="section tint" id="map">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">互动地图 · INTERACTIVE MAP</span>
+      <h2 class="sec-title">一张地图，三条路线，逛遍桂信科</h2>
+      <p class="sec-sub">按住地图拖动、滚轮或按钮缩放；点击任意点位看详情。切换路线，地图会自动带你飞过去。</p>
+    </div>
+
+    <div class="route-tabs" id="routeTabs">
+      <button type="button" class="route-tab active" data-route="a"><i style="--rc:#A61E28"></i>新生报到线<small>约1小时 · 5站</small></button>
+      <button type="button" class="route-tab" data-route="b"><i style="--rc:#C9A15E"></i>半小时打卡线<small>约30分钟 · 5站</small></button>
+      <button type="button" class="route-tab" data-route="c"><i style="--rc:#3E7C8F"></i>活力运动线<small>约40分钟 · 5站</small></button>
+      <button type="button" class="route-tab" data-route="all"><i style="--rc:#8A8F98"></i>全部点位<small>自由探索</small></button>
+    </div>
+
+    <div class="map-wrap">
+      <div class="map-viewport" id="mapViewport">
+        <div class="map-stage" id="mapStage">
+          <img src="assets/img/map/campus-map.jpg" alt="桂林信息科技学院校园插画地图（来源：学校官网）" draggable="false">
+          <svg class="map-svg" id="mapSvg" viewBox="0 0 1295 1275" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <div class="map-hint">🖱 按住拖动 · 滚轮缩放</div>
+        <div class="map-zoombar">
+          <button type="button" data-z="in" aria-label="放大">＋</button>
+          <button type="button" data-z="out" aria-label="缩小">－</button>
+          <button type="button" data-z="reset" aria-label="复位">⌂</button>
+        </div>
+        <div class="map-legend" id="mapLegend"></div>
+      </div>
+      <aside class="stop-panel">
+        <div class="stop-ph" id="stopPh"><span>信</span></div>
+        <div class="stop-body">
+          <span class="stop-tag" id="stopTag">校门</span>
+          <h3 id="stopName">东大门（新校门）</h3>
+          <p id="stopDesc">加载中…</p>
+        </div>
+        <div class="stop-nav">
+          <button type="button" id="stopPrev">‹ 上一站</button>
+          <span id="stopIdx">1 / 13</span>
+          <button type="button" id="stopNext">下一站 ›</button>
+        </div>
+      </aside>
+    </div>
+    <p class="map-note">※ 底图为校园插画地图（来源：学校官网）；路线为示意走向，非实际导航，实地以校园指示牌为准。</p>
+  </div>
+</section>
+
+<!-- 三条路线 -->
+<section class="section">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">路线推荐 · ROUTES</span>
+      <h2 class="sec-title">三条路线，按需选择</h2>
+      <p class="sec-sub">点击卡片或「在地图上查看」，即可在地图中高亮对应路线。</p>
+    </div>
+    <div class="grid-3">
+      <article class="route-card" data-route="a">
+        <div class="rc-head"><span class="rc-dot" style="--rc:#A61E28"></span><h3>新生报到线</h3><span class="rc-time">约1小时 · 5站</span></div>
+        <p>初来乍到先走这条：从东大门进校，先去文体活动中心办报到、领材料，放下行李、熟悉生活圈，最后到图书馆坐坐。</p>
+        <div class="rc-stops"><span>东大门</span><b>→</b><span>文体活动中心</span><b>→</b><span>中苑宿舍</span><b>→</b><span>生活服务区</span><b>→</b><span>图文信息综合楼</span></div>
+        <button type="button" class="btn btn-line rc-go" data-route="a">在地图上查看 →</button>
+      </article>
+      <article class="route-card" data-route="b">
+        <div class="rc-head"><span class="rc-dot" style="--rc:#C9A15E"></span><h3>半小时打卡线</h3><span class="rc-time">约30分钟 · 5站</span></div>
+        <p>时间有限就冲这条：打卡文体活动中心、湖景步道和图书馆，再到教学区感受一下“大学的样子”。</p>
+        <div class="rc-stops"><span>东大门</span><b>→</b><span>文体活动中心</span><b>→</b><span>校园湖景</span><b>→</b><span>图文信息综合楼</span><b>→</b><span>教学区</span></div>
+        <button type="button" class="btn btn-line rc-go" data-route="b">在地图上查看 →</button>
+      </article>
+      <article class="route-card" data-route="c">
+        <div class="rc-head"><span class="rc-dot" style="--rc:#3E7C8F"></span><h3>活力运动线</h3><span class="rc-time">约40分钟 · 5站</span></div>
+        <p>爱运动的同学看这条：田径场跑一圈、风雨操场打场球，再逛逛宿舍区，把校园活力值拉满。</p>
+        <div class="rc-stops"><span>东大门</span><b>→</b><span>田径场</span><b>→</b><span>风雨操场</span><b>→</b><span>北苑宿舍</span><b>→</b><span>西苑宿舍</span></div>
+        <button type="button" class="btn btn-line rc-go" data-route="c">在地图上查看 →</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 实用信息 -->
+<section class="section white">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">实用信息 · TIPS</span>
+      <h2 class="sec-title">来校前，再看这几条</h2>
+    </div>
+    <div class="grid-4">
+      <div class="card"><div class="no">01 · 地址</div><h3>临桂区岩图路9号</h3><p>地图 App 搜索「桂林信息科技学院（临桂校区）」即可导航。</p><p style="margin-top:8px"><a href="https://www.amap.com/search?query=%E6%A1%82%E6%9E%97%E4%BF%A1%E6%81%AF%E7%A7%91%E6%8A%80%E5%AD%A6%E9%99%A2" target="_blank" rel="noopener" style="color:var(--red)">高德地图搜索 →</a></p></div>
+      <div class="card"><div class="no">02 · 报到</div><h3>跟着迎新指引走</h3><p>新生报到日建议从<b>东大门</b>进校，沿志愿者指引至文体活动中心办理手续。</p></div>
+      <div class="card"><div class="no">03 · 运动</div><h3>田径场与风雨操场</h3><p>室外田径场适合晨跑夜跑，风雨操场晴雨都能运动，体测与球类活动常在这里。</p></div>
+      <div class="card"><div class="no">04 · 说明</div><h3>关于本页地图</h3><p>底图为学校官网发布的插画地图，点位与路线为示意整理，如与现场不一致以校园实际为准。</p></div>
+    </div>
+    <div class="sec-more">
+      <a class="btn btn-red" href="campus.html">再看 25 张校园实拍 →</a>
+      <a class="btn btn-line" href="contact.html" style="margin-left:12px">联系方式</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <img src="assets/img/logo-white.png" alt="桂林信息科技学院">
+        <p>遇见桂信科 —— 桂林信息科技学院校园风采展示网站。本网站为在校学生参加“AI创想桂信科”AI应用创意赛道的参赛作品，内容与图片来源为学校官网及公开资料。</p>
+      </div>
+      <div>
+        <div class="f-title">快速导航</div>
+        <ul class="f-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">走进信科</a></li>
+          <li><a href="majors.html">院系与专业</a></li>
+          <li><a href="honors.html">办学成果</a></li>
+          <li><a href="campus.html">校园相册</a></li>
+          <li><a href="route.html">校园路线</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-title">联系方式</div>
+        <ul class="f-contact">
+          <li><b>校址：</b>广西桂林市临桂区岩图路9号（邮编 541100）</li>
+          <li><b>招生热线：</b>0773-8100501 / 8100502 / 8100503 / 8100506 / 8100508</li>
+          <li><b>学校邮箱：</b>xxkjxy@guet.edu.cn　<b>党政办：</b>0773-8100550</li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-title">官方平台</div>
+        <ul class="f-links">
+          <li><a href="https://www.guit.edu.cn/" target="_blank" rel="noopener">学校官网 www.guit.edu.cn</a></li>
+          <li><a href="https://www.guit.edu.cn/zs/" target="_blank" rel="noopener">招生网</a></li>
+          <li><a href="https://www.guit.edu.cn/xjy/" target="_blank" rel="noopener">就业网</a></li>
+          <li><a href="contact.html">官方微信二维码</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span class="js-year">2026</span> 遇见桂信科 · 学生参赛作品（AI创想桂信科 · AI应用创意赛道）</span>
+      <span>内容与图片来源：桂林信息科技学院官网（数据统计至 2026 年 6 月）· 如与官方信息不一致，以学校官网为准</span>
+    </div>
+  </div>
+</footer>
+
+<button class="backtop" aria-label="返回顶部">↑</button>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/route.js"></script>
+</body>
+</html>
