@@ -8,8 +8,11 @@
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/polish.css">
+<link rel="stylesheet" href="assets/css/assistant.css">
+<link rel="stylesheet" href="assets/css/mtn-bg.css">
+<link rel="stylesheet" href="assets/css/lightbox-info.css">
 </head>
-<body>
+<body class="pg-campus">
 
 <div class="topbar" id="topbar">
   <div class="container">
@@ -28,6 +31,7 @@
       <a href="honors.html">办学成果</a>
       <a href="campus.html" class="active">校园相册</a>
       <a href="route.html">校园路线</a>
+      <a href="services.html">校园服务</a>
       <a href="contact.html">联系我们</a>
     </nav>
     <button class="nav-burger" aria-label="菜单">☰</button>
@@ -43,13 +47,19 @@
   </div>
 </section>
 
+<div class="mtn-top" aria-hidden="true">
+  <span class="mtn-hills"></span>
+  <span class="ginkgo g-sm"></span>
+  <span class="ginkgo g-lg"></span>
+</div>
+
 <!-- 相册 -->
 <section class="section">
   <div class="container">
     <div class="sec-head">
       <span class="eyebrow">照片墙 · PHOTO WALL</span>
       <h2 class="sec-title">四季、建筑与青春</h2>
-      <p class="sec-sub">点击任意照片可查看大图，支持左右切换与 Esc 关闭。</p>
+      <p class="sec-sub">点击任意照片，看大图 + 这张在做什么、在哪里；支持左右切换与 Esc 关闭。</p>
     </div>
     <div class="g-filter">
       <button type="button" class="active" data-cat="all">全部（25）</button>
@@ -58,37 +68,46 @@
       <button type="button" data-cat="教职工活动">教职工活动（3）</button>
     </div>
     <div class="g-grid">
-      <figure class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-1.jpg" alt="光影校园" loading="lazy"><figcaption class="g-cap">光影校园</figcaption></figure>
-      <figure class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-2.jpg" alt="校园烟火——红砖建筑与人气广场" loading="lazy"><figcaption class="g-cap">校园烟火</figcaption></figure>
-      <figure class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-3.jpg" alt="四时景致——金秋银杏" loading="lazy"><figcaption class="g-cap">四时景致 · 金秋银杏</figcaption></figure>
-      <figure class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-4.jpg" alt="绿意校园——钟楼与春花" loading="lazy"><figcaption class="g-cap">绿意校园 · 钟楼与春花</figcaption></figure>
-      <figure class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-5.jpg" alt="云端瞰校——校园航拍" loading="lazy"><figcaption class="g-cap">云端瞰校</figcaption></figure>
-      <figure class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-6.jpg" alt="校园建筑——教学楼与镜湖" loading="lazy"><figcaption class="g-cap">校园建筑</figcaption></figure>
+      <figure data-cat="光影校园" data-title="图书馆的木质阶梯" data-desc="午后光从高窗斜切进来，落在木质阶梯和书架上——这是图书馆里最安静的一角，也是很多人自习时挑的座位。" data-place="图书馆中庭阶梯" class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-1.jpg" alt="光影校园" loading="lazy"><figcaption class="g-cap">光影校园</figcaption></figure>
+      <figure data-cat="校园风光" data-title="校园烟火" data-desc="商业街一带的红砖楼与店铺，茶百道、超市、打印店都在这条街上；课间十分钟，这里人最多。" data-place="校园商业街" class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-2.jpg" alt="校园烟火——红砖建筑与人气广场" loading="lazy"><figcaption class="g-cap">校园烟火</figcaption></figure>
+      <figure data-cat="校园风光" data-title="四时景致 · 金秋银杏" data-desc="校园里的一棵银杏，到了十一月整棵树变金，是每年秋天最出片的角落。" data-place="校园主路旁" class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-3.jpg" alt="四时景致——金秋银杏" loading="lazy"><figcaption class="g-cap">四时景致 · 金秋银杏</figcaption></figure>
+      <figure data-cat="校园风光" data-title="绿意校园 · 钟楼与春花" data-desc="红砖钟楼被春天的花枝框住。钟楼是校园里最好认的地标，也是新生拍照的第一站。" data-place="钟楼广场" class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-4.jpg" alt="绿意校园——钟楼与春花" loading="lazy"><figcaption class="g-cap">绿意校园 · 钟楼与春花</figcaption></figure>
+      <figure data-cat="校园风光" data-title="云端瞰校" data-desc="航拍视角的临桂校区：红砖楼群、镜湖、红色拱桥和远处的山连成一片，1331 亩的样子一眼看完。" data-place="临桂校区全景" class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-5.jpg" alt="云端瞰校——校园航拍" loading="lazy"><figcaption class="g-cap">云端瞰校</figcaption></figure>
+      <figure data-cat="校园风光" data-title="校园建筑" data-desc="教学楼与其前的一片水面，倒影把楼和云连在一起；傍晚风小的时候最清楚。" data-place="教学楼前水面" class="g-item reveal" data-cat="风光建筑"><span class="g-cat">校园风光</span><img src="assets/img/gallery/fg-6.jpg" alt="校园建筑——教学楼与镜湖" loading="lazy"><figcaption class="g-cap">校园建筑</figcaption></figure>
 
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-1.jpg" alt="戎色韶华——军训季的我们" loading="lazy"><figcaption class="g-cap">戎色韶华</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-2.jpg" alt="艺彩纷呈——校园舞台瞬间" loading="lazy"><figcaption class="g-cap">艺彩纷呈</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-3.jpg" alt="群英荟萃——社团活动集锦" loading="lazy"><figcaption class="g-cap">群英荟萃</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-4.jpg" alt="风耀绿茵——绿茵场上的青春" loading="lazy"><figcaption class="g-cap">风耀绿茵</figcaption></figure>
+      <figure data-cat="青春纪实" data-title="戎色韶华" data-desc="军训拉练，队伍沿着校外道路行进，红旗走在最前面。这是新生入学的第一堂课。" data-place="校园外环道路" class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-1.jpg" alt="戎色韶华——军训季的我们" loading="lazy"><figcaption class="g-cap">戎色韶华</figcaption></figure>
+      <figure data-cat="青春纪实" data-title="艺彩纷呈" data-desc="舞狮队在场地中央表演，周围同学举着手机围了一圈。校庆、运动会开幕式常见的开场节目。" data-place="操场前广场" class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-2.jpg" alt="艺彩纷呈——校园舞台瞬间" loading="lazy"><figcaption class="g-cap">艺彩纷呈</figcaption></figure>
+      <figure data-cat="青春纪实" data-title="群英荟萃" data-desc="机甲大师赛场上，两支队伍的车正在对射，地上散落着打出去的弹丸。这些车都是校队自己设计、自己装配的。" data-place="体育馆 · 机甲大师赛场" class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-3.jpg" alt="群英荟萃——社团活动集锦" loading="lazy"><figcaption class="g-cap">群英荟萃</figcaption></figure>
+      <figure data-cat="青春纪实" data-title="风耀绿茵" data-desc="体育馆里的篮球场，天窗的光落在地板上。比赛开始前的那几分钟，场馆最安静。" data-place="体育馆" class="g-item reveal" data-cat="学生活动"><span class="g-cat">青春纪实</span><img src="assets/img/gallery/qc-4.jpg" alt="风耀绿茵——绿茵场上的青春" loading="lazy"><figcaption class="g-cap">风耀绿茵</figcaption></figure>
 
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-1.jpg" alt="迎新季——来到信科，很Nice" loading="lazy"><figcaption class="g-cap">来到信科，很 Nice</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-2.jpg" alt="机甲大师高校联盟赛·广西站小组赛" loading="lazy"><figcaption class="g-cap">机甲大师高校联盟赛·广西站</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-3.jpg" alt="浓情端午，共赴“粽”情之约——端午民俗活动" loading="lazy"><figcaption class="g-cap">浓情端午 · 民俗活动</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-4.jpg" alt="RoboMaster 全国大学生机器人大赛" loading="lazy"><figcaption class="g-cap">RoboMaster 机器人大赛</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-5.jpg" alt="新生红歌比赛——青春逐浪忆峥嵘" loading="lazy"><figcaption class="g-cap">新生红歌比赛</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-6.jpg" alt="科技文化月成果展" loading="lazy"><figcaption class="g-cap">科技文化月成果展</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-7.jpg" alt="大学生社团文化节" loading="lazy"><figcaption class="g-cap">大学生社团文化节</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-8.jpg" alt="社团文化展——百团大“绽”" loading="lazy"><figcaption class="g-cap">百团大“绽”</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-9.jpg" alt="潮玩三月三·青春壮乡行——民俗文化活动" loading="lazy"><figcaption class="g-cap">潮玩三月三 · 青春壮乡行</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-10.jpg" alt="毛泽东诗词朗诵表演比赛暨校园舞蹈大赛" loading="lazy"><figcaption class="g-cap">诗词朗诵与舞蹈大赛</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-11.jpg" alt="新生报到现场——欢迎新同学" loading="lazy"><figcaption class="g-cap">新生报到现场</figcaption></figure>
-      <figure class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-12.jpg" alt="暑期“三下乡”社会实践出征仪式" loading="lazy"><figcaption class="g-cap">“三下乡”出征仪式</figcaption></figure>
+      <figure data-cat="护航成长" data-title="赛场边的讲解" data-desc="机器人队的同学在赛场边讲解战车结构：底盘、云台、发射机构一件件指过去，来看比赛的同学围成一圈听。" data-place="机甲大师赛场（体育馆）" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-1.jpg" alt="迎新季——来到信科，很Nice" loading="lazy"><figcaption class="g-cap">来到信科，很 Nice</figcaption></figure>
+      <figure data-cat="护航成长" data-title="机甲大师高校联盟赛 · 广西站" data-desc="看台上的同学举着队旗为校队呐喊。这场比赛由学校承办，主场作战。" data-place="体育馆看台" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-2.jpg" alt="机甲大师高校联盟赛·广西站小组赛" loading="lazy"><figcaption class="g-cap">机甲大师高校联盟赛·广西站</figcaption></figure>
+      <figure data-cat="护航成长" data-title="浓情端午 · 民俗活动" data-desc="端午民俗体验：学生围在长桌前包粽子、做香囊，后勤的阿姨在一旁教。" data-place="学生活动广场" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-3.jpg" alt="浓情端午，共赴“粽”情之约——端午民俗活动" loading="lazy"><figcaption class="g-cap">浓情端午 · 民俗活动</figcaption></figure>
+      <figure data-cat="护航成长" data-title="RoboMaster 机器人大赛" data-desc="「机甲大师高校联盟赛（广西站）3V3 对抗赛」颁奖现场：参赛队举着队旗上台领奖，大屏打出“冠军”。" data-place="体育馆 · 赛场主舞台" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-4.jpg" alt="RoboMaster 全国大学生机器人大赛" loading="lazy"><figcaption class="g-cap">RoboMaster 机器人大赛</figcaption></figure>
+      <figure data-cat="护航成长" data-title="新生红歌比赛" data-desc="「青春逐浪忆峥嵘」合唱比赛，新生班级轮番上台，台下坐满了人。" data-place="报告厅" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-5.jpg" alt="新生红歌比赛——青春逐浪忆峥嵘" loading="lazy"><figcaption class="g-cap">新生红歌比赛</figcaption></figure>
+      <figure data-cat="护航成长" data-title="科技文化月成果展" data-desc="科技文化月成果展：各学院把这一年做的项目、作品摆进展厅，学生现场演示。" data-place="展厅（体育馆一层）" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-6.jpg" alt="科技文化月成果展" loading="lazy"><figcaption class="g-cap">科技文化月成果展</figcaption></figure>
+      <figure data-cat="护航成长" data-title="大学生社团文化节" data-desc="社团纳新一条街，蓝色帐篷一字排开，从学术科技到文艺体育都能找到。" data-place="校园主干道" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-7.jpg" alt="大学生社团文化节" loading="lazy"><figcaption class="g-cap">大学生社团文化节</figcaption></figure>
+      <figure data-cat="护航成长" data-title="百团大「绽」" data-desc="「百团大绽」拱门下，几十个社团摆摊招新，整条路被新生挤满。" data-place="校园主干道" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-8.jpg" alt="社团文化展——百团大“绽”" loading="lazy"><figcaption class="g-cap">百团大“绽”</figcaption></figure>
+      <figure data-cat="护航成长" data-title="广西三月三 · 信科民族文化节" data-desc="「广西三月三 · 信科民族文化节」，穿民族服饰的同学在台上表演、合影；台下还有竹竿舞、山歌和民俗体验摊。" data-place="校园舞台（田径场旁）" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-9.jpg" alt="潮玩三月三·青春壮乡行——民俗文化活动" loading="lazy"><figcaption class="g-cap">潮玩三月三 · 青春壮乡行</figcaption></figure>
+      <figure data-cat="护航成长" data-title="诗词朗诵与舞蹈大赛" data-desc="毛泽东诗词朗诵表演比赛暨校园舞蹈大赛，舞台大屏打出主题，节目一个接一个。" data-place="报告厅" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-10.jpg" alt="毛泽东诗词朗诵表演比赛暨校园舞蹈大赛" loading="lazy"><figcaption class="g-cap">诗词朗诵与舞蹈大赛</figcaption></figure>
+      <figure data-cat="护航成长" data-title="新生报到现场" data-desc="新生拖着行李箱穿过「新生报到」拱门，家长在门口合影；这一天校园里全是新面孔。" data-place="校门迎新通道" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-11.jpg" alt="新生报到现场——欢迎新同学" loading="lazy"><figcaption class="g-cap">新生报到现场</figcaption></figure>
+      <figure data-cat="护航成长" data-title="「三下乡」出征仪式" data-desc="暑期「三下乡」社会实践出征仪式，队伍接过队旗准备出发，去县乡做支教和调研。" data-place="报告厅" class="g-item reveal" data-cat="学生活动"><span class="g-cat">护航成长</span><img src="assets/img/gallery/hc-12.jpg" alt="暑期“三下乡”社会实践出征仪式" loading="lazy"><figcaption class="g-cap">“三下乡”出征仪式</figcaption></figure>
 
-      <figure class="g-item reveal" data-cat="教职工活动"><span class="g-cat">筑梦未来</span><img src="assets/img/gallery/zj-1.jpg" alt="校运会教职工趣味竞赛" loading="lazy"><figcaption class="g-cap">校运会趣味竞赛</figcaption></figure>
-      <figure class="g-item reveal" data-cat="教职工活动"><span class="g-cat">筑梦未来</span><img src="assets/img/gallery/zj-2.jpg" alt="重阳时节——走访慰问银龄教师" loading="lazy"><figcaption class="g-cap">重阳慰问银龄教师</figcaption></figure>
-      <figure class="g-item reveal" data-cat="教职工活动"><span class="g-cat">筑梦未来</span><img src="assets/img/gallery/zj-3.jpg" alt="教职工气排球比赛" loading="lazy"><figcaption class="g-cap">教职工气排球比赛</figcaption></figure>
+      <figure data-cat="筑梦未来" data-title="气排球赛的趣味环节" data-desc="教职工气排球比赛间隙的趣味互动：一圈人顶着彩虹伞同步转圈，笑场比比赛还热闹（背景横幅写着“第五届教职工气排球比赛”）。" data-place="体育馆" class="g-item reveal" data-cat="教职工活动"><span class="g-cat">筑梦未来</span><img src="assets/img/gallery/zj-1.jpg" alt="校运会教职工趣味竞赛" loading="lazy"><figcaption class="g-cap">校运会趣味竞赛</figcaption></figure>
+      <figure data-cat="筑梦未来" data-title="重阳慰问银龄教师" data-desc="重阳节座谈，学校把退休的老教师请回来，聊聊学校这些年的变化。" data-place="行政楼会议室" class="g-item reveal" data-cat="教职工活动"><span class="g-cat">筑梦未来</span><img src="assets/img/gallery/zj-2.jpg" alt="重阳时节——走访慰问银龄教师" loading="lazy"><figcaption class="g-cap">重阳慰问银龄教师</figcaption></figure>
+      <figure data-cat="筑梦未来" data-title="教职工气排球比赛" data-desc="教职工气排球赛结束，两队在场地上合影；这类比赛每学期都有。" data-place="体育馆" class="g-item reveal" data-cat="教职工活动"><span class="g-cat">筑梦未来</span><img src="assets/img/gallery/zj-3.jpg" alt="教职工气排球比赛" loading="lazy"><figcaption class="g-cap">教职工气排球比赛</figcaption></figure>
     </div>
   </div>
 </section>
+<section class="pg-band b-campus" aria-label="白天看风景，夜里看灯">
+  <div class="pg-in">
+    <div class="container">
+      <div><div class="pg-kicker">CAMPUS · 昼夜</div><h2 class="pg-title">白天看风景，夜里看灯</h2></div>
+      <div class="pg-note"><b>校园相册 25 张</b></div>
+    </div>
+  </div>
+</section>
+
 
 <!-- 校园设施 -->
 <section class="section white">
@@ -169,5 +188,6 @@
 <button class="backtop" aria-label="返回顶部">↑</button>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/route.js"></script>
+<script src="assets/js/assistant.js"></script>
 </body>
 </html>

@@ -8,8 +8,15 @@
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/polish.css">
+<link rel="stylesheet" href="assets/css/assistant.css">
+<link rel="stylesheet" href="assets/css/mtn-bg.css">
+<link rel="stylesheet" href="assets/css/clusters.css">
+<link rel="stylesheet" href="assets/css/gallery-fan.css">
+<link rel="stylesheet" href="assets/css/home.css">
 </head>
-<body>
+<body class="pg-index">
+
+
 
 <!-- 顶部公告 -->
 <div class="topbar" id="topbar">
@@ -30,6 +37,7 @@
       <a href="honors.html">办学成果</a>
       <a href="campus.html">校园相册</a>
       <a href="route.html">校园路线</a>
+      <a href="services.html">校园服务</a>
       <a href="contact.html">联系我们</a>
     </nav>
     <button class="nav-burger" aria-label="菜单">☰</button>
@@ -59,6 +67,12 @@
   </div>
   <div class="hero-scroll">向下探索</div>
 </section>
+
+<div class="mtn-top" aria-hidden="true">
+  <span class="mtn-hills"></span>
+  <span class="ginkgo g-sm"></span>
+  <span class="ginkgo g-lg"></span>
+</div>
 
 <!-- 数据速览 -->
 <section class="stats">
@@ -100,48 +114,95 @@
     </div>
   </div>
 </section>
-
-<!-- 八大专业集群 -->
-<section class="section white">
-  <div class="container">
-    <div class="sec-head center">
-      <span class="eyebrow">学科布局 · DISCIPLINE CLUSTERS</span>
-      <h2 class="sec-title">八大专业集群，服务国家与区域发展</h2>
-      <p class="sec-sub">紧密围绕国家发展新质生产力的战略需求，优化专业布局，打造八大专业集群，更好地服务国家及区域经济社会发展。</p>
-    </div>
-    <div class="grid-2x4">
-      <div class="card reveal"><div class="no">01</div><h3>人工智能与大数据</h3><p>拥抱人工智能时代，培养 AI、数据与安全领域的应用型人才。</p><div class="tagline">人工智能 · 数据科学与大数据技术 · 网络空间安全</div></div>
-      <div class="card reveal" data-delay="60"><div class="no">02</div><h3>新一代信息技术</h3><p>面向通信、软件与网络产业，打牢“软硬结合”的信息类人才基础。</p><div class="tagline">通信工程 · 计算机科学与技术 · 软件工程 · 网络工程 · 物联网工程</div></div>
-      <div class="card reveal" data-delay="120"><div class="no">03</div><h3>智能制造与机器人</h3><p>对接智能制造与机器人产业，覆盖设计、制造到控制的全链条培养。</p><div class="tagline">机械设计制造及其自动化 · 机器人工程 · 智能制造工程 · 无人驾驶航空器系统工程</div></div>
-      <div class="card reveal" data-delay="180"><div class="no">04</div><h3>新能源与智能电气</h3><p>聚焦新能源与智能电气方向，服务能源电子与智能装备产业。</p><div class="tagline">电气工程及其自动化 · 自动化 · 新能源科学与工程 · 新能源材料与器件</div></div>
-      <div class="card reveal"><div class="no">05</div><h3>数字创意设计</h3><p>创意与技术融合，培养数字内容、虚拟现实与设计表达兼备的创作人才。</p><div class="tagline">视觉传达设计 · 数字媒体艺术 · 动画 · 虚拟现实技术 · 智能交互设计</div></div>
-      <div class="card reveal" data-delay="60"><div class="no">06</div><h3>数智商科</h3><p>“商业 + 数据 + 管理”复合培养，锻造数字商业时代的新商科人才。</p><div class="tagline">市场营销 · 电子商务 · 财务管理 · 金融科技 · 大数据管理与应用</div></div>
-      <div class="card reveal" data-delay="120"><div class="no">07</div><h3>国际服务与贸易</h3><p>立足桂林国际旅游名城，面向东盟与粤港澳大湾区培养经贸与服务人才。</p><div class="tagline">英语 · 商务英语 · 国际商务 · 国际经济与贸易 · 酒店管理</div></div>
-      <div class="card reveal" data-delay="180"><div class="no">08</div><h3>旅游与体育健康</h3><p>服务“健康中国”与文旅产业，培养体育健康领域应用型人才。</p><div class="tagline">休闲体育 · 运动康复</div></div>
+<section class="pg-band bright b-index" aria-label="1331 亩，一张照片装不下">
+  <div class="pg-in">
+    <div class="container">
+      <div><div class="pg-kicker">CAMPUS · 航拍</div><h2 class="pg-title">1331 亩，<br>一张照片装不下</h2></div>
+      <div class="pg-note"><b>临桂新校区</b></div>
     </div>
   </div>
 </section>
 
-<!-- 院系与专业（预览） -->
-<section class="section">
+
+<!-- 八大专业集群（左说明 + 右清单，机械臂照片做左栏底） -->
+<section class="section white theme-l" id="clusters">
+  <div class="cl-photo" aria-hidden="true"><img src="assets/img/clusters/robot-arm-color.webp" alt=""></div>
   <div class="container">
-    <div class="sec-head">
-      <span class="eyebrow">院系与专业 · SCHOOLS &amp; MAJORS</span>
-      <h2 class="sec-title">7 个二级教学单位 · 43 个本科专业</h2>
-      <p class="sec-sub">涵盖工、管、文、理、经济、艺术、教育 7 大学科门类。以下为各学院与代表性专业（完整专业目录见「院系与专业」页）。</p>
-    </div>
-    <div class="grid-2x4">
-      <div class="card college-card reveal"><span class="count">7 个专业</span><h3>信息工程学院</h3><p>面向软件、网络与人工智能产业，信息类核心专业群。</p><div class="majors"><span class="hot">计算机科学与技术</span><span>软件工程</span><span>人工智能</span><span>网络工程</span><span>网络空间安全</span></div></div>
-      <div class="card college-card reveal" data-delay="60"><span class="count">6 个专业</span><h3>电子工程学院</h3><p>学校电子信息特色的主力学院，实践与产业结合的“新工科”阵地。</p><div class="majors"><span class="hot">电子信息工程</span><span>物联网工程</span><span>自动化</span><span>测控技术与仪器</span><span>医学信息工程</span></div></div>
-      <div class="card college-card reveal" data-delay="120"><span class="count">8 个专业</span><h3>机电工程学院</h3><p>对接智能制造、机器人与新能源装备产业的工科强院。</p><div class="majors"><span class="hot">机械设计制造及其自动化</span><span>机械电子工程</span><span>机器人工程</span><span>电气工程及其自动化</span><span>无人驾驶航空器系统工程</span></div></div>
-      <div class="card college-card reveal" data-delay="180"><span class="count">7 个专业</span><h3>商学院</h3><p>“数智商科”方向，商业、数据与管理交叉融合。</p><div class="majors"><span class="hot">市场营销</span><span>电子商务</span><span>财务管理</span><span>金融科技</span><span>大数据管理与应用</span></div></div>
-      <div class="card college-card reveal"><span class="count">6 个专业</span><h3>创意设计学院</h3><p>艺术与科技融合，数字创意与交互设计的人才摇篮。</p><div class="majors"><span>视觉传达设计</span><span>产品设计</span><span>数字媒体艺术</span><span>动画</span><span>虚拟现实技术</span></div></div>
-      <div class="card college-card reveal" data-delay="60"><span class="count">5 个专业</span><h3>外贸与外语学院</h3><p>服务中国—东盟合作与大湾区经贸往来。</p><div class="majors"><span>英语</span><span>商务英语</span><span>国际商务</span><span>国际经济与贸易</span><span>酒店管理</span></div></div>
-      <div class="card college-card reveal" data-delay="120"><span class="count">2 个专业</span><h3>体育与健康学院</h3><p>服务“健康中国”战略，体育与康复人才培养新阵地。</p><div class="majors"><span>休闲体育</span><span>运动康复</span></div></div>
-      <div class="card college-card reveal" data-delay="180"><h3>通识教育学院 · 马克思主义学院</h3><p>通识素养课堂与思政育人阵地，夯实“德智体美劳”全面发展的底色。</p><div class="majors"><span>通识教育</span><span>思想政治理论课</span></div></div>
-    </div>
-    <div class="sec-more">
-      <a class="btn btn-red" href="majors.html">查看完整专业目录（41个普本专业）→</a>
+    <div class="cl-wrap">
+      <div class="cl-aside">
+        <div class="sec-head">
+          <span class="eyebrow">学科布局 · DISCIPLINE CLUSTERS</span>
+          <h2 class="sec-title">八大专业集群<br>服务国家与区域发展</h2>
+        </div>
+        <p class="cl-lead">紧密围绕国家发展新质生产力的战略需求，优化专业布局，打造八大专业集群，更好地服务国家及区域经济社会发展。每个集群都能对上具体学院与专业。</p>
+        <div class="cl-kpi">
+          <div><b>8</b><span>大专业集群</span></div>
+          <div><b>7</b><span>个二级学院</span></div>
+          <div><b>43</b><span>个本科专业</span></div>
+          <div><b>7</b><span>大学科门类</span></div>
+        </div>
+        <a class="btn btn-red" href="majors.html">查看完整专业目录 →</a>
+        <p class="cl-note">专业设置整理自学校官网《2025 年专业设置（普本）》<br>数据统计至 2026 年 6 月，以官网最新公布为准</p>
+      </div>
+      <div class="cl-list">
+        <article class="cl-item">
+          <span class="cl-no">01</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="7" y="7" width="10" height="10" rx="2.5"/><path d="M10 3v2M14 3v2M10 19v2M14 19v2M3 10h2M3 14h2M19 10h2M19 14h2"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">人工智能与大数据</h3><p class="cl-desc">拥抱人工智能时代，培养 AI、数据与安全领域的应用型人才。</p></div>
+          <div class="cl-tags"><span>人工智能</span><span>数据科学与大数据技术</span><span>网络空间安全</span></div>
+          <a class="cl-go" href="majors.html"><b>信息工程学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">02</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4.6 19.4a7 7 0 010-9.9"/><path d="M19.4 19.4a7 7 0 000-9.9"/><path d="M8.1 16.6a3.6 3.6 0 010-5"/><path d="M15.9 16.6a3.6 3.6 0 000-5"/><circle cx="12" cy="14.4" r="1.5" fill="currentColor" stroke="none"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">新一代信息技术</h3><p class="cl-desc">面向通信、软件与网络产业，打牢“软硬结合”的信息类人才基础。</p></div>
+          <div class="cl-tags"><span>通信工程</span><span>计算机科学与技术</span><span>软件工程</span><span>网络工程</span><span>物联网工程</span></div>
+          <a class="cl-go" href="majors.html"><b>信息 / 电子工程学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">03</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="4.5" y="8.8" width="15" height="11" rx="3"/><circle cx="9.2" cy="13.2" r="1.3" fill="currentColor" stroke="none"/><circle cx="14.8" cy="13.2" r="1.3" fill="currentColor" stroke="none"/><path d="M12 8.8V5.9"/><circle cx="12" cy="4.3" r="1.5"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">智能制造与机器人</h3><p class="cl-desc">对接智能制造与机器人产业，覆盖设计、制造到控制的全链条培养。</p></div>
+          <div class="cl-tags"><span>机械设计制造及其自动化</span><span>机器人工程</span><span>智能制造工程</span><span>无人驾驶航空器系统工程</span></div>
+          <a class="cl-go" href="majors.html"><b>机电工程学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">04</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M13.6 3.4L6.7 13h4.2l-.9 7.6L17 10.8h-4.3l.9-7.4z" stroke-linejoin="round"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">新能源与智能电气</h3><p class="cl-desc">聚焦新能源与智能电气方向，服务能源电子与智能装备产业。</p></div>
+          <div class="cl-tags"><span>电气工程及其自动化</span><span>自动化</span><span>新能源科学与工程</span><span>新能源材料与器件</span></div>
+          <a class="cl-go" href="majors.html"><b>机电工程学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">05</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 19.2l2.2-6.2L16 4.3a2 2 0 012.9 0l1 1a2 2 0 010 2.9L11.1 17 5 19.2z"/><path d="M14.4 6.6l3.1 3.1"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">数字创意设计</h3><p class="cl-desc">创意与技术融合，培养数字内容、虚拟现实与设计表达兼备的创作人才。</p></div>
+          <div class="cl-tags"><span>视觉传达设计</span><span>数字媒体艺术</span><span>动画</span><span>虚拟现实技术</span><span>智能交互设计</span></div>
+          <a class="cl-go" href="majors.html"><b>创意设计学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">06</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 4.2V20h16"/><rect x="7" y="12.2" width="3" height="4.8" rx="1"/><rect x="12" y="8.2" width="3" height="8.8" rx="1"/><rect x="17" y="10.2" width="3" height="6.8" rx="1"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">数智商科</h3><p class="cl-desc">“商业 + 数据 + 管理”复合培养，锻造数字商业时代的新商科人才。</p></div>
+          <div class="cl-tags"><span>市场营销</span><span>电子商务</span><span>财务管理</span><span>金融科技</span><span>大数据管理与应用</span></div>
+          <a class="cl-go" href="majors.html"><b>商学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">07</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8"/><path d="M12 3.6c2.6 2.3 4 5.3 4 8.4s-1.4 6.1-4 8.4c-2.6-2.3-4-5.3-4-8.4s1.4-6.1 4-8.4z"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">国际服务与贸易</h3><p class="cl-desc">立足桂林国际旅游名城，面向东盟与粤港澳大湾区培养经贸与服务人才。</p></div>
+          <div class="cl-tags"><span>英语</span><span>商务英语</span><span>国际商务</span><span>国际经济与贸易</span><span>酒店管理</span></div>
+          <a class="cl-go" href="majors.html"><b>外贸与外语学院</b>专业目录 <i>→</i></a>
+        </article>
+        <article class="cl-item">
+          <span class="cl-no">08</span>
+          <span class="cl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="16.6" cy="7.6" r="2.6"/><path d="M3.5 19.2l5.3-7.5 3.4 4.5 2.4-3.1 5.9 6.1z"/></svg></span>
+          <div class="cl-main"><h3 class="cl-name">旅游与体育健康</h3><p class="cl-desc">服务“健康中国”与文旅产业，培养体育健康领域应用型人才。</p></div>
+          <div class="cl-tags"><span>休闲体育</span><span>运动康复</span></div>
+          <a class="cl-go" href="majors.html"><b>体育与健康学院</b>专业目录 <i>→</i></a>
+        </article>
+        <div class="cl-foot"><span>8 大集群 · 覆盖工、管、文、理、经济、艺术、教育 7 大学科门类</span><a href="majors.html">按学院查看全部专业 →</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -167,29 +228,109 @@
       <span>央广网“2022年度全国创新创业典范高校”</span>
       <span>2025校友会民办大学排名全国第76位</span>
     </div>
+
+    <div class="honor-chart reveal" id="honorChart">
+      <div class="hc-left">
+        <span class="hc-k">毕业去向落实率 · 2024 届</span>
+        <strong>88.59<small>%</small></strong>
+        <span class="hc-note">三年累计 +4.49 个百分点 · 连续 12 年广西就业创业工作突出单位</span>
+      </div>
+      <svg class="hc-spark" viewBox="0 0 760 74" aria-label="2022 至 2024 届毕业去向落实率：84.1%、87.9%、88.59%">
+        <defs>
+          <linearGradient id="hcGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#A61E28" stop-opacity=".22"/>
+            <stop offset="100%" stop-color="#A61E28" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path class="area" d="M10,56.5 L380,23.8 L748,17.8 L748,74 L10,74 Z"/>
+        <path class="line" d="M10,56.5 L380,23.8 L748,17.8"/>
+        <circle cx="10" cy="56.5" r="3.6" fill="#fff" stroke="#A61E28" stroke-width="2.2"/>
+        <circle cx="380" cy="23.8" r="3.6" fill="#fff" stroke="#A61E28" stroke-width="2.2"/>
+        <circle cx="748" cy="17.8" r="5" fill="#A61E28"/>
+      </svg>
+      <a class="hc-more" href="honors.html#databoard">看完整数据看板 →</a>
+    </div>
     <div class="sec-more"><a class="btn btn-line" href="honors.html">查看办学成果详情 →</a></div>
   </div>
 </section>
 
-<!-- 校园相册（预览） -->
-<section class="section">
+<!-- 校园相册（扇形封面流） -->
+<section class="section fan-section" id="galleryFan">
   <div class="container">
     <div class="sec-head">
       <span class="eyebrow">校园相册 · CAMPUS GALLERY</span>
       <h2 class="sec-title">山水与人文相交融的校园</h2>
-      <p class="sec-sub">占地 1331 亩的校园里，光影、四季、建筑与青春都在讲述故事。以下为「校园风光」六个主题的一瞥。</p>
+      <p class="sec-sub">占地 1331 亩的校园里，光影、四季、建筑与青春都在讲述故事。左右拖动或点两侧卡片切换镜头，点中间那张可以放大细看。</p>
     </div>
-    <div class="g-grid">
-      <figure class="g-item reveal"><span class="g-cat">风光建筑</span><img src="assets/img/gallery/fg-1.jpg" alt="光影校园" loading="lazy"><figcaption class="g-cap">光影校园</figcaption></figure>
-      <figure class="g-item reveal" data-delay="60"><span class="g-cat">风光建筑</span><img src="assets/img/gallery/fg-2.jpg" alt="校园烟火" loading="lazy"><figcaption class="g-cap">校园烟火</figcaption></figure>
-      <figure class="g-item reveal" data-delay="120"><span class="g-cat">风光建筑</span><img src="assets/img/gallery/fg-3.jpg" alt="四时景致——金秋银杏" loading="lazy"><figcaption class="g-cap">四时景致</figcaption></figure>
-      <figure class="g-item reveal" data-delay="180"><span class="g-cat">风光建筑</span><img src="assets/img/gallery/fg-4.jpg" alt="绿意校园——钟楼与春花" loading="lazy"><figcaption class="g-cap">绿意校园</figcaption></figure>
-      <figure class="g-item reveal" data-delay="240"><span class="g-cat">风光建筑</span><img src="assets/img/gallery/fg-5.jpg" alt="云端瞰校——校园航拍" loading="lazy"><figcaption class="g-cap">云端瞰校</figcaption></figure>
-      <figure class="g-item reveal" data-delay="300"><span class="g-cat">风光建筑</span><img src="assets/img/gallery/fg-6.jpg" alt="校园建筑" loading="lazy"><figcaption class="g-cap">校园建筑</figcaption></figure>
+  </div>
+
+  <div class="fan-stage" id="fanStage" aria-label="校园风光图片轮播：左右方向键切换，回车放大">
+    <div class="fan-glow" aria-hidden="true"></div>
+    <div class="fan-track" id="fanTrack">
+      <figure class="fan-card" data-title="光影校园" data-cat="风光建筑" data-desc="图书馆里的阶梯阅读区：整面木质书墙沿台阶铺开，午后阳光从高窗斜射进来，是学生最爱的自习角落。">
+        <img src="assets/img/gallery/fg-1.jpg" alt="光影校园——图书馆阶梯阅读区">
+        <span class="fan-cat">风光建筑</span>
+        <figcaption class="fan-cap"><b>光影校园</b><span>图书馆阶梯阅读区</span></figcaption>
+      </figure>
+      <figure class="fan-card" data-title="校园烟火" data-cat="风光建筑" data-desc="教学楼下就是生活服务街——超市、奶茶店和露天座位一字排开，课间十分钟的烟火气全在这里。">
+        <img src="assets/img/gallery/fg-2.jpg" alt="校园烟火——教学楼下生活服务街">
+        <span class="fan-cat">风光建筑</span>
+        <figcaption class="fan-cap"><b>校园烟火</b><span>教学楼下生活服务街</span></figcaption>
+      </figure>
+      <figure class="fan-card" data-title="四时景致" data-cat="风光建筑" data-desc="抬头看秋天：红橙色的枝叶铺满天空，和蓝天撞出最鲜的一抹秋色，是校园里最好拍的季节。">
+        <img src="assets/img/gallery/fg-3.jpg" alt="四时景致——秋日树冠仰拍">
+        <span class="fan-cat">风光建筑</span>
+        <figcaption class="fan-cap"><b>四时景致</b><span>秋日树冠仰拍</span></figcaption>
+      </figure>
+      <figure class="fan-card" data-title="绿意校园" data-cat="风光建筑" data-desc="春天的钟楼：红砖塔身、拱形门洞，配上一树粉色花枝，是校园里最经典的取景角度。">
+        <img src="assets/img/gallery/fg-4.jpg" alt="绿意校园——钟楼与春日花枝">
+        <span class="fan-cat">风光建筑</span>
+        <figcaption class="fan-cap"><b>绿意校园</b><span>钟楼与春日花枝</span></figcaption>
+      </figure>
+      <figure class="fan-card" data-title="云端瞰校" data-cat="风光建筑" data-desc="从高处望向教学区：三座红砖门楼连着拱桥，湖面、草坪与教学楼依次排开，这是走进校园的第一眼。">
+        <img src="assets/img/gallery/fg-5.jpg" alt="云端瞰校——校门桥与教学区">
+        <span class="fan-cat">风光建筑</span>
+        <figcaption class="fan-cap"><b>云端瞰校</b><span>校门桥与教学区</span></figcaption>
+      </figure>
+      <figure class="fan-card" data-title="校园建筑" data-cat="风光建筑" data-desc="知行楼正面：红色砖墙与拱门门厅一字排开，楼前是水绿与草坪，天光落下来时最有气势。">
+        <img src="assets/img/gallery/fg-6.jpg" alt="校园建筑——知行楼（图书馆）正面">
+        <span class="fan-cat">风光建筑</span>
+        <figcaption class="fan-cap"><b>校园建筑</b><span>知行楼（图书馆）正面</span></figcaption>
+      </figure>
+    </div>
+    <button type="button" class="fan-nav fan-prev" id="fanPrev" aria-label="上一张">‹</button>
+    <button type="button" class="fan-nav fan-next" id="fanNext" aria-label="下一张">›</button>
+  </div>
+
+  <div class="container">
+    <div class="fan-bar">
+      <div class="fan-dots" id="fanDots"></div>
+      <div class="fan-count"><b id="fanIdx">1</b> / 6</div>
     </div>
     <div class="sec-more"><a class="btn btn-red" href="campus.html">进入校园相册（25 张）→</a></div>
   </div>
 </section>
+
+<!-- 放大查看 -->
+<div class="fan-modal" id="fanModal" role="dialog" aria-modal="true" aria-labelledby="fanModalTitle" aria-hidden="true">
+  <div class="fan-modal-box">
+    <div class="fan-modal-imgwrap">
+      <img class="fan-modal-img" id="fanModalImg" src="assets/img/gallery/fg-1.jpg" alt="">
+      <button type="button" class="fan-x" id="fanModalClose" aria-label="关闭">✕</button>
+      <button type="button" class="fan-mnav fan-mprev" id="fanModalPrev" aria-label="上一张">‹</button>
+      <button type="button" class="fan-mnav fan-mnext" id="fanModalNext" aria-label="下一张">›</button>
+    </div>
+    <div class="fan-modal-info">
+      <span class="fan-modal-cat" id="fanModalCat">风光建筑</span>
+      <h3 class="fan-modal-title" id="fanModalTitle"></h3>
+      <p class="fan-modal-desc" id="fanModalDesc"></p>
+      <div class="fan-modal-foot">
+        <span id="fanModalCount">1 / 6</span>
+        <a href="campus.html">在校园相册里看全部 25 张 →</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- 校园路线 -->
 <section class="section tint">
@@ -215,6 +356,41 @@
   </div>
 </section>
 
+<!-- 校园服务（入口） -->
+<section class="section svc-entry">
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">校园服务 · CAMPUS SERVICES</span>
+      <h2 class="sec-title">来了学校，这些事一页就能查</h2>
+      <p class="sec-sub">办证要带什么材料、东西坏了怎么报修、生活网点在哪儿——都整理在「校园服务」页，首页只做入口。</p>
+    </div>
+    <div class="se-grid">
+      <a class="se-card" href="services.html#tab-a">
+        <span class="se-key">A</span>
+        <span class="se-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="16.5" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M8.6 10h6.8M8.6 13.5h6.8M8.6 17h4.2"/></svg></span>
+        <h3>办事指引</h3>
+        <p>校园卡补办、学生证补办、助学贷款……材料清单、办理时间、地点都列清楚；缺哪项材料，还能查能不能先办。</p>
+        <span class="se-enter">去查材料 <i>→</i></span>
+      </a>
+      <a class="se-card" href="services.html#tab-b">
+        <span class="se-key">B</span>
+        <span class="se-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 015.2 5.2l-8 8a2.1 2.1 0 01-3-3l8-8z"/><path d="M5 19l3.2-3.2"/></svg></span>
+        <h3>报修登记</h3>
+        <p>桌椅、灯管、空调、门锁坏了，拍照上传，AI 帮你把故障写清楚，提交后在看板上看处理进度。</p>
+        <span class="se-enter">去报修 <i>→</i></span>
+      </a>
+      <a class="se-card" href="services.html#tab-c">
+        <span class="se-key">C</span>
+        <span class="se-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.1-7-11a7 7 0 1114 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <h3>生活网点</h3>
+        <p>食堂、超市、快递、打印、一卡通充值点在哪儿，校医室和常用电话一次找齐。</p>
+        <span class="se-enter">看网点 <i>→</i></span>
+      </a>
+    </div>
+    <p class="se-note">办事信息整理自学校官网与现场信息；报修单仅本地记录，不推送后勤系统。</p>
+  </div>
+</section>
+
 <!-- 新闻动态 -->
 <section class="section white">
   <div class="container">
@@ -224,56 +400,48 @@
       <p class="sec-sub">以下标题整理自学校官网近期发布内容（2026年8月—9月）。</p>
     </div>
     <div class="news-wrap">
-      <div class="news-item reveal"><span class="n-date">09-24</span><span class="n-main"><span class="n-title">【校园文化】“社”采风华、“团”遇知己——我校2026年大学生社团文化节圆满落幕<span class="n-tag">校园文化</span></span></span></div>
-      <div class="news-item reveal" data-delay="60"><span class="n-date">09-24</span><span class="n-main"><span class="n-title">我校举办广东利元亨“启元计划”桂林信科院定制班开班仪式暨新生“启智月”企业讲座<span class="n-tag">校企合作</span></span></span></div>
-      <div class="news-item reveal"><span class="n-date">09-23</span><span class="n-main"><span class="n-title">中国民办教育协会、民办教育合作项目洽谈会考察代表团一行莅临我校参观考察<span class="n-tag">交流合作</span></span></span></div>
-      <div class="news-item reveal" data-delay="60"><span class="n-date">09-22</span><span class="n-main"><span class="n-title">学校校长解庆林出席电子工程学院2027届毕业生就业动员大会<span class="n-tag">就业工作</span></span></span></div>
-      <div class="news-item reveal"><span class="n-date">09-09</span><span class="n-main"><span class="n-title">我校“心益家园”社会实践团获共青团桂林市委员会致信感谢<span class="n-tag">荣誉时刻</span></span></span></div>
-      <div class="news-item reveal" data-delay="60"><span class="n-date">09-08</span><span class="n-main"><span class="n-title">马克思主义学院召开教育家精神暨师德师风学习教育专题学习会<span class="n-tag">教学科研</span></span></span></div>
-      <div class="news-item reveal"><span class="n-date">09-07</span><span class="n-main"><span class="n-title">商学院召开2026年秋季学期心理普测工作布置会<span class="n-tag">学生工作</span></span></span></div>
-      <div class="news-item reveal" data-delay="60"><span class="n-date">08-31</span><span class="n-main"><span class="n-title">【喜讯】我校教师获批两项广西高等教育人工智能与机器人教育教学改革课题<span class="n-tag">喜讯</span></span></span></div>
+      <a class="news-head reveal" href="https://www.guit.edu.cn/info/1025/34823.htm" target="_blank" rel="noopener">
+        <span class="nh-top"><span class="nh-date">2026-10-19</span><span class="nh-tag">信科要闻</span></span>
+        <span class="nh-title">党委书记甘勇教授专题宣讲《中华人民共和国民族团结进步促进法》</span>
+        <span class="nh-more">阅读学校官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34826.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-19</span>
+        <span class="n-main"><span class="n-title">校长解庆林教授专题宣讲《中华人民共和国民族团结进步促进法》<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34813.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-19</span>
+        <span class="n-main"><span class="n-title">学校召开留学人员联谊会成立大会<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34810.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-18</span>
+        <span class="n-main"><span class="n-title">学校第六届运动会球类项目暨第四届“绿茵信科”足球赛顺利开幕<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34775.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-16</span>
+        <span class="n-main"><span class="n-title">我校“百企进校园”2027届毕业生就业双选会成功举办<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34766.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-14</span>
+        <span class="n-main"><span class="n-title">学校党委召开党委理论学习中心组学习会<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34762.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-12</span>
+        <span class="n-main"><span class="n-title">协同育人启新程 共铸智造英才——我校与零跑汽车、联嘉易找科技举行战略合作签约仪式<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
+      <a class="news-item reveal" href="https://www.guit.edu.cn/info/1025/34750.htm" target="_blank" rel="noopener">
+        <span class="n-date">10-10</span>
+        <span class="n-main"><span class="n-title">深耕产教融合，锤炼双师本领——学校召开2026年暑假教师入企工作总结大会<span class="n-tag">信科要闻</span></span></span>
+        <span class="n-out">官网原文 ↗</span>
+      </a>
     </div>
     <div class="news-note">新闻内容整理自桂林信息科技学院官网（<a href="https://www.guit.edu.cn/" target="_blank" rel="noopener" style="color:var(--red)">www.guit.edu.cn</a>），更多请访问官网「新闻」栏目。</div>
-  </div>
-</section>
-
-<!-- 快捷入口 -->
-<section class="section tight">
-  <div class="container">
-    <div class="quick-cards">
-      <a class="quick-card reveal" href="about.html"><span class="qc-ico">🎓</span><h3>我是新生，从哪看起？</h3><p>3 分钟了解学校概况、校训校史与办学特色。</p><span class="go">走进信科 →</span></a>
-      <a class="quick-card reveal" data-delay="80" href="majors.html"><span class="qc-ico">📚</span><h3>选专业看这里</h3><p>7 个学院、43 个本科专业与专业建设成果一览。</p><span class="go">院系与专业 →</span></a>
-      <a class="quick-card reveal" data-delay="160" href="campus.html"><span class="qc-ico">📷</span><h3>先逛逛校园吧</h3><p>25 张照片：四季风光、社团活动、赛场青春。</p><span class="go">校园相册 →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- 新生小测试 -->
-<section class="section">
-  <div class="container">
-    <div class="sec-head">
-      <span class="eyebrow">互动小测 · QUIZ</span>
-      <h2 class="sec-title">你有多了解桂信科？</h2>
-      <p class="sec-sub">来都来了，做 8 道小题，看看你离“信科通”还有多远。答案都藏在本站里哦。</p>
-    </div>
-    <div class="quiz reveal" id="quiz">
-      <div class="quiz-body">
-        <div class="quiz-head">
-          <h3 style="color:var(--ink);font-size:16px">🎯 新生挑战</h3>
-          <span class="quiz-progress">第 1 / 8 题</span>
-        </div>
-        <p class="q-text">加载中…</p>
-        <div class="q-opts"></div>
-        <p class="q-feedback"></p>
-        <div class="quiz-bar"><i></i></div>
-      </div>
-      <div class="quiz-result">
-        <div class="score">0<small> / 8</small></div>
-        <div class="msg"></div>
-        <div class="sub"></div>
-        <button type="button" class="btn btn-red quiz-again">再来一次</button>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -325,5 +493,21 @@
 <button class="backtop" aria-label="返回顶部">↑</button>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/route.js"></script>
+<script src="assets/js/gallery-fan.js"></script>
+<script>
+/* 首页就业率小图：滚到就播放 */
+(function(){
+  var el = document.getElementById('honorChart');
+  if (!el) return;
+  if (!('IntersectionObserver' in window) || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    el.classList.add('in'); return;
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) { el.classList.add('in'); io.disconnect(); } });
+  }, { threshold: .3 });
+  io.observe(el);
+})();
+</script>
+<script src="assets/js/assistant.js"></script>
 </body>
 </html>

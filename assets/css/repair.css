@@ -1,0 +1,157 @@
+/* ============================================================
+   校园报修 · 登记与进度看板（方案 3）
+   左：提交表单（含图片 + AI 识别）  右：看板列表（可筛状态）
+   ============================================================ */
+
+.repair-section{background:#FAF7F1}
+.repair-section .sec-head{margin-bottom:24px}
+
+/* ---------- KPI ---------- */
+.rp-kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.rp-kpi div{
+  background:#fff;border:1px solid rgba(201,161,94,.26);border-radius:14px;
+  padding:14px 16px;box-shadow:0 12px 28px rgba(70,45,20,.06);
+}
+.rp-kpi b{display:block;font-family:var(--font-serif);font-size:27px;line-height:1;color:var(--ink);letter-spacing:-.5px}
+.rp-kpi b i{font-style:normal;font-size:12px;color:var(--muted);margin-left:3px;font-family:var(--font-sans)}
+.rp-kpi span{display:block;font-size:11.5px;color:var(--muted);margin-top:7px;letter-spacing:.3px}
+.rp-kpi div:nth-child(2) b{color:#B4763C}
+.rp-kpi div:nth-child(3) b{color:#1E7A4E}
+.rp-kpi div:nth-child(4) b{color:var(--red)}
+
+/* ---------- 两栏 ---------- */
+.rp-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:20px;align-items:start}
+.rp-card{
+  background:#fff;border:1px solid rgba(201,161,94,.26);border-radius:18px;
+  box-shadow:0 18px 44px rgba(70,45,20,.08),0 1px 0 #fff inset;
+  padding:20px 22px;position:relative;overflow:hidden;
+}
+.rp-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;
+  background:linear-gradient(90deg,var(--red),rgba(166,30,40,0) 70%)}
+.rp-card h3{font-size:16.5px;color:var(--ink);margin:0 0 2px;letter-spacing:.2px}
+.rp-card .rp-sub{font-size:11.5px;color:var(--muted);margin:0 0 16px}
+
+/* ---------- 表单 ---------- */
+.rp-field{margin-bottom:14px}
+.rp-lbl{display:block;font-size:12px;color:var(--muted);margin-bottom:6px;letter-spacing:.3px}
+.rp-lbl b{color:var(--red);font-weight:400;margin-left:2px}
+.rp-row{display:flex;gap:8px}
+.rp-input,.rp-select,.rp-area{
+  width:100%;border:1px solid var(--line);border-radius:10px;background:#FCFAF6;
+  font-family:inherit;font-size:13.5px;color:var(--ink);padding:9px 11px;outline:none;
+  transition:border-color .2s,background .2s,box-shadow .2s;
+}
+.rp-area{min-height:78px;resize:vertical;line-height:1.65}
+.rp-input:focus,.rp-select:focus,.rp-area:focus{border-color:rgba(166,30,40,.5);background:#fff;
+  box-shadow:0 0 0 3px rgba(166,30,40,.07)}
+.rp-select{appearance:none;background-image:linear-gradient(45deg,transparent 49%,#A9A398 50%),
+  linear-gradient(-45deg,transparent 49%,#A9A398 50%);
+  background-size:6px 6px,6px 6px;background-position:calc(100% - 16px) 18px,calc(100% - 11px) 18px;
+  background-repeat:no-repeat;padding-right:32px}
+
+/* 类型 chips */
+.rp-types{display:flex;flex-wrap:wrap;gap:7px}
+.rp-type{
+  border:1px solid var(--line);background:#fff;color:var(--text);font-size:12.5px;
+  padding:6px 12px;border-radius:999px;cursor:pointer;font-family:inherit;
+  transition:border-color .2s,background .2s,color .2s,transform .15s;
+}
+.rp-type:hover{border-color:rgba(166,30,40,.4);transform:translateY(-1px)}
+.rp-type.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 8px 18px rgba(166,30,40,.22)}
+
+/* 上传 */
+.rp-upload{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  border:1.5px dashed #DCCFBE;border-radius:12px;background:#FCFAF6;
+  padding:16px;cursor:pointer;color:var(--muted);font-size:12.5px;
+  transition:border-color .2s,background .2s,color .2s;text-align:center;
+}
+.rp-upload:hover{border-color:rgba(166,30,40,.45);color:var(--red);background:#FFF9F6}
+.rp-upload input{display:none}
+.rp-preview{display:none;margin-top:10px;position:relative}
+.rp-preview.show{display:block}
+.rp-preview img{width:100%;max-height:196px;object-fit:cover;border-radius:10px;display:block;
+  border:1px solid var(--line)}
+.rp-preview .rp-clear{
+  position:absolute;right:8px;top:8px;width:26px;height:26px;border-radius:50%;border:0;
+  background:rgba(20,16,12,.62);color:#fff;font-size:12px;cursor:pointer;line-height:1;
+}
+
+/* AI 按钮 */
+.rp-ai{
+  display:none;width:100%;margin-top:10px;border:1px solid rgba(166,30,40,.35);
+  background:linear-gradient(135deg,#FFF6F2,#FFEFE9);color:var(--red);
+  font-family:inherit;font-size:12.5px;padding:9px 14px;border-radius:10px;cursor:pointer;
+  align-items:center;justify-content:center;gap:7px;transition:background .2s,transform .2s;
+}
+.rp-ai.show{display:flex}
+.rp-ai:hover{background:#FFE9E1;transform:translateY(-1px)}
+.rp-ai[disabled]{opacity:.6;cursor:progress;transform:none}
+.rp-ai-msg{margin-top:8px;font-size:11.5px;color:#1E7A4E;display:none;line-height:1.6}
+.rp-ai-msg.show{display:block}
+.rp-ai-msg.err{color:var(--red)}
+
+/* 提交 */
+.rp-submit{
+  width:100%;margin-top:16px;border:0;border-radius:11px;padding:12px 16px;cursor:pointer;
+  background:linear-gradient(135deg,#B4232E,#8A161F);color:#fff;font-family:inherit;
+  font-size:14px;letter-spacing:.4px;box-shadow:0 14px 30px rgba(166,30,40,.28);
+  transition:transform .2s,box-shadow .2s;
+}
+.rp-submit:hover{transform:translateY(-1px);box-shadow:0 18px 36px rgba(166,30,40,.34)}
+.rp-hint{font-size:11px;color:#A9A398;margin:10px 0 0;line-height:1.7}
+
+/* ---------- 看板 ---------- */
+.rp-board-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.rp-tabs{display:flex;gap:6px}
+.rp-tab{
+  border:1px solid var(--line);background:#fff;color:var(--text);font-size:12px;
+  padding:6px 11px;border-radius:999px;cursor:pointer;font-family:inherit;white-space:nowrap;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.rp-tab.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.rp-tab:hover:not(.on){border-color:rgba(166,30,40,.4);color:var(--red)}
+
+.rp-list{display:flex;flex-direction:column;gap:10px;max-height:640px;overflow-y:auto;padding-right:4px}
+.rp-list::-webkit-scrollbar{width:6px}
+.rp-list::-webkit-scrollbar-thumb{background:rgba(166,30,40,.2);border-radius:6px}
+
+.rp-item{
+  border:1px solid var(--line);border-radius:13px;background:#fff;padding:13px 14px 12px 16px;
+  position:relative;transition:box-shadow .2s,transform .2s,border-color .2s;
+}
+.rp-item:hover{box-shadow:0 12px 28px rgba(40,28,16,.09);transform:translateY(-1px)}
+.rp-item::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:3px;background:var(--line)}
+.rp-item[data-st="待处理"]::before{background:#C0392B}
+.rp-item[data-st="处理中"]::before{background:#C9A15E}
+.rp-item[data-st="已完成"]::before{background:#1E7A4E}
+.rp-item-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.rp-id{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.4px}
+.rp-place{font-size:13.5px;color:var(--ink);font-weight:700}
+.rp-st{
+  margin-left:auto;font-size:11px;padding:2px 9px;border-radius:999px;cursor:pointer;
+  border:1px solid transparent;white-space:nowrap;
+}
+.rp-st[data-st="待处理"]{color:#A61E28;background:rgba(166,30,40,.08);border-color:rgba(166,30,40,.24)}
+.rp-st[data-st="处理中"]{color:#8A6A2F;background:rgba(201,161,94,.14);border-color:rgba(201,161,94,.38)}
+.rp-st[data-st="已完成"]{color:#1E7A4E;background:rgba(30,122,78,.1);border-color:rgba(30,122,78,.28)}
+.rp-item-desc{font-size:12.5px;color:var(--text);line-height:1.65;margin:0 0 8px}
+.rp-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.rp-tags span{font-size:10.5px;color:var(--gold-2);background:rgba(201,161,94,.1);
+  border:1px solid rgba(201,161,94,.3);border-radius:5px;padding:1px 6px}
+.rp-item-foot{display:flex;align-items:center;gap:10px;font-size:11px;color:var(--muted)}
+.rp-item-foot img{width:44px;height:44px;object-fit:cover;border-radius:7px;border:1px solid var(--line)}
+.rp-empty{padding:34px 10px;text-align:center;color:var(--muted);font-size:12.5px}
+
+.rp-foot{margin-top:16px;font-size:11.5px;color:#A9A398;line-height:1.8}
+
+@media (max-width:980px){
+  .rp-wrap{grid-template-columns:1fr}
+  .rp-kpi{grid-template-columns:1fr 1fr}
+  .rp-list{max-height:none}
+}
+@media (max-width:560px){
+  .rp-card{padding:16px 15px}
+  .rp-kpi b{font-size:23px}
+  .rp-row{flex-direction:column}
+}

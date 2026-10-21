@@ -1,0 +1,214 @@
+/* ============================================================
+   「走进信科」改版 v2 —— A 山水纸纹打底 + C 双色调照片条带
+   页面结构与样式全部在此文件，不改 style.css / polish.css
+   ============================================================ */
+
+.ab-body{position:relative;background:#FAF7F1;overflow:hidden}
+.ab-body > section,.ab-body > .pf-band{position:relative;z-index:2}
+
+/* ---------- 整页极淡水印 + 纸纹 ---------- */
+.ab-wm,.ab-grain{position:absolute;inset:0;z-index:0;pointer-events:none}
+.ab-wm{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 480' preserveAspectRatio='none'%3E%3Cpath d='M0,480 C57,276 118,244 168,177 C226,244 295,276 361,465 C404,251 449,237 487,169 C541,237 607,251 669,431 C712,236 757,205 795,127 C861,205 939,236 1014,445 C1056,248 1101,234 1138,165 C1193,234 1259,248 1321,459 L1200,480 Z' fill='%238B5E3C' /%3E%3C/svg%3E");
+  background-size:1400px auto;background-repeat:repeat-y;background-position:center 180px;
+  opacity:.013;
+}
+.ab-grain{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url%28%2523n%29' opacity='.42'/%3E%3C/svg%3E");
+  background-size:240px 240px;opacity:.30;mix-blend-mode:multiply;
+}
+
+/* ---------- 山水层叠 ---------- */
+.ab-mtn{position:absolute;left:0;right:0;top:215px;height:900px;z-index:0;pointer-events:none;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 52%,rgba(0,0,0,.62) 72%,transparent 94%);mask-image:linear-gradient(180deg,#000 0%,#000 52%,rgba(0,0,0,.62) 72%,transparent 94%)}
+.mtn{position:absolute;left:0;width:100%;height:100%;bottom:0;background-repeat:no-repeat;background-position:bottom center;background-size:100% 100%;will-change:transform}
+.mtn-l1{height:470px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 480' preserveAspectRatio='none'%3E%3Cpath d='M0,480 L0,470 L53,470 C79,326 109,250 123,208 Q141,192 159,208 C173,253 186,339 215,470 L253,470 C277,326 288,250 302,208 Q319,192 335,208 C349,253 378,339 406,470 L453,470 C479,348 501,284 515,248 Q533,235 551,248 C566,286 586,359 615,470 L636,470 C662,331 671,258 685,218 Q703,203 721,218 C735,261 767,344 796,470 L849,470 C878,291 923,196 940,144 Q960,124 980,144 C996,199 998,307 1031,470 L1083,470 C1110,319 1135,240 1151,196 Q1169,180 1188,196 C1203,243 1222,333 1253,470 L1327,470 C1361,301 1410,211 1429,162 Q1452,144 1475,162 C1494,214 1499,316 1537,470 L1597,470 C1630,335 1654,264 1673,225 Q1696,210 1719,225 C1738,267 1603,348 1640,470 L1640,480 Z' fill='%23E2CFB1'/%3E%3C/svg%3E")}
+.mtn-l2{height:410px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 480' preserveAspectRatio='none'%3E%3Cpath d='M0,480 L0,476 L29,476 C61,372 103,317 121,287 Q143,276 165,287 C183,319 193,382 229,476 L275,476 C311,377 327,325 348,296 Q373,285 398,296 C418,327 461,386 502,476 L544,476 C577,364 618,305 637,272 Q660,260 683,272 C701,307 715,374 752,476 L797,476 C822,328 830,250 844,207 Q861,191 879,207 C893,253 927,342 955,476 L990,476 C1015,364 1040,305 1054,272 Q1071,260 1089,272 C1103,307 1119,374 1147,476 L1232,476 C1265,351 1283,285 1301,249 Q1324,235 1347,249 C1366,288 1402,362 1439,476 L1478,476 C1503,379 1535,327 1549,299 Q1566,288 1583,299 C1597,329 1605,388 1633,476 L1712,476 C1741,366 1757,308 1773,276 Q1793,264 1814,276 C1830,310 1607,376 1640,476 L1640,480 Z' fill='%23D2B58D'/%3E%3C/svg%3E")}
+.mtn-l3{height:335px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 480' preserveAspectRatio='none'%3E%3Cpath d='M0,480 L0,480 L61,480 C95,365 137,304 156,271 Q180,258 203,271 C222,307 236,376 274,480 L374,480 C406,349 434,280 452,242 Q475,228 497,242 C515,282 539,361 575,480 L612,480 C637,389 678,341 692,314 Q710,304 727,314 C742,342 742,397 771,480 L849,480 C889,391 913,345 936,319 Q963,309 991,319 C1013,346 1054,400 1099,480 L1140,480 C1168,397 1189,353 1205,329 Q1224,320 1244,329 C1260,355 1284,404 1316,480 L1406,480 C1435,384 1447,334 1463,306 Q1483,296 1503,306 C1519,336 1554,393 1586,480 L1664,480 C1699,347 1739,277 1759,238 Q1783,223 1807,238 C1827,279 1601,359 1640,480 L1640,480 Z' fill='%23BE9B6B'/%3E%3C/svg%3E")}
+.mtn-l4{height:250px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 480' preserveAspectRatio='none'%3E%3Cpath d='M0,480 L0,480 L83,480 C121,373 171,317 192,286 Q218,274 244,286 C265,319 276,383 318,480 L393,480 C423,403 442,362 459,340 Q480,332 500,340 C517,364 548,410 582,480 L649,480 C687,413 727,378 748,358 Q774,351 800,358 C821,379 842,419 884,480 L990,480 C1018,380 1039,327 1054,298 Q1073,287 1092,298 C1108,329 1132,389 1163,480 L1263,480 C1306,408 1337,370 1361,349 Q1390,341 1420,349 C1444,371 1482,414 1530,480 L1593,480 C1621,393 1651,346 1667,321 Q1686,311 1705,321 C1721,348 1609,400 1640,480 L1640,480 Z' fill='%23AB8250'/%3E%3C/svg%3E")}
+
+
+/* ---------- 主视觉补充 ---------- */
+.ab-hero{position:relative}
+.ab-hero .page-hero::after{background:linear-gradient(90deg,rgba(18,14,12,.56),rgba(18,14,12,.12) 62%,rgba(18,14,12,.24))}
+.ab-hero .page-hero{overflow:visible}
+.ab-hero-facts{
+  position:relative;z-index:3;margin:-46px auto 0;max-width:1180px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 24px;
+}
+.ab-fact{
+  background:rgba(255,255,255,.92);border:1px solid rgba(201,161,94,.3);border-radius:14px;
+  padding:16px 18px;box-shadow:0 16px 36px rgba(60,32,16,.10);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.ab-fact b{display:block;font-family:var(--font-serif);font-size:22px;color:var(--red);line-height:1.2;margin-bottom:3px}
+.ab-fact span{font-size:12px;color:var(--text);letter-spacing:.2px}
+.ab-hero-year{
+  position:absolute;right:24px;bottom:18px;z-index:3;text-align:right;color:rgba(255,255,255,.92);
+}
+.ab-hero-year b{display:block;font-family:var(--font-serif);font-size:30px;letter-spacing:.04em;line-height:1.1}
+.ab-hero-year i{font-style:normal;font-size:11.5px;letter-spacing:.32em;opacity:.8}
+
+/* ---------- 一、一句话认识 ---------- */
+.ab-intro{padding:86px 0 34px}
+.ab-grid{display:grid;grid-template-columns:1.45fr .95fr;gap:48px;align-items:start}
+.ab-text{
+  position:relative;padding:30px 32px;border-radius:20px;
+  background:linear-gradient(180deg,rgba(252,249,244,.94),rgba(250,246,240,.88));
+  border:1px solid rgba(201,161,94,.22);
+  box-shadow:0 22px 54px rgba(70,45,20,.07);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+}
+.ab-text p{font-size:15.5px;line-height:2.05;color:var(--text);margin:0 0 18px}
+.ab-text p:last-child{margin-bottom:0}
+.ab-text .ab-lead{font-size:17px;color:var(--ink);line-height:1.9}
+.ab-text .hl{background:linear-gradient(transparent 62%,rgba(166,30,40,.16) 62%);padding:0 2px}
+.ab-src{margin-top:18px;font-size:11.5px;color:var(--muted)}
+
+.ab-side{display:flex;flex-direction:column;gap:14px}
+.ab-motto{
+  background:linear-gradient(158deg,#FFFDF8,#F8E9E2);border:1px solid rgba(201,161,94,.32);
+  border-radius:16px;padding:30px 24px;text-align:center;box-shadow:0 18px 40px rgba(70,45,20,.08);
+}
+.ab-motto-txt{font-family:var(--font-kai);font-size:27px;letter-spacing:.18em;color:var(--red);font-weight:700;line-height:1.72}
+.ab-motto-lb{margin-top:12px;font-size:11px;letter-spacing:.34em;color:var(--muted)}
+.ab-kv{background:#fff;border:1px solid rgba(201,161,94,.24);border-radius:14px;padding:18px 20px}
+.ab-kv-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px dashed rgba(201,161,94,.26);font-size:13.5px;line-height:1.7}
+.ab-kv-row:last-child{border-bottom:0;padding-bottom:0}
+.ab-kv-row:first-child{padding-top:0}
+.ab-kv-row b{flex:0 0 62px;color:var(--ink);font-weight:600}
+.ab-kv-row span{color:var(--text)}
+
+/* ---------- 双色调照片条带（C） ---------- */
+.pf-band{
+  position:relative;height:330px;background-size:cover;background-position:center 42%;
+  display:flex;align-items:flex-end;
+}
+.pf-band--gate{background-image:url("../img/about/band-gate.webp");background-position:center 74%}
+.pf-band--aerial{background-image:url("../img/about/band-aerial.webp");background-position:center 58%}
+.pf-band::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(20,12,10,.10) 0%,rgba(20,12,10,0) 30%),
+    linear-gradient(0deg,rgba(20,12,10,.52) 0%,rgba(20,12,10,.16) 26%,rgba(20,12,10,0) 52%),
+    linear-gradient(90deg,rgba(20,12,10,.62) 0%,rgba(20,12,10,.30) 30%,rgba(20,12,10,0) 56%);
+}
+.pf-in{position:relative;z-index:2;width:100%;padding:0 0 34px}
+.pf-in .container{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.pf-kicker{font-size:11px;letter-spacing:.34em;color:rgba(255,255,255,.8);margin-bottom:10px}
+.pf-title{font-family:var(--font-serif);font-size:29px;line-height:1.42;color:#fff;margin:0;letter-spacing:.02em;text-shadow:0 2px 12px rgba(20,10,8,.55), 0 1px 3px rgba(20,10,8,.4)}
+.pf-note{font-size:12.5px;color:rgba(255,255,255,.82);text-align:right;line-height:1.9;white-space:nowrap}
+.pf-note b{display:block;font-family:var(--font-serif);font-size:18px;color:#fff;letter-spacing:.06em}
+
+/* ---------- 二、横向时间轴 ---------- */
+.ab-hist{padding:76px 0 24px;background:transparent}
+.tl-track{
+  position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+  margin-top:44px;padding:0 6px;
+}
+.tl-track::before{
+  content:"";position:absolute;left:0;right:0;top:7px;height:1px;
+  background:linear-gradient(90deg,rgba(126,144,134,0),rgba(126,144,134,.55) 8%,rgba(126,144,134,.55) 92%,rgba(126,144,134,0));
+}
+.tl-node{position:relative;padding:0 12px 0 0}
+.tl-dot{
+  width:15px;height:15px;border-radius:50%;background:#FAF7F1;border:2px solid #7E9086;
+  position:relative;z-index:2;margin-bottom:18px;transition:transform .3s,background .3s,border-color .3s;
+}
+.tl-node:hover .tl-dot{background:#A61E28;border-color:#A61E28;transform:scale(1.25)}
+.tl-year{font-family:var(--font-serif);font-size:23px;color:var(--red);line-height:1.1;letter-spacing:.01em}
+.tl-node:nth-child(n+4) .tl-year{color:#8A6A2F}
+.tl-t{font-size:14px;font-weight:700;color:var(--ink);margin:7px 0 6px;line-height:1.5}
+.tl-d{font-size:12.5px;line-height:1.85;color:var(--text);margin:0}
+
+/* ---------- 三、数字 + 师资双环 ---------- */
+.ab-nums{padding:72px 0 40px}
+.ab-num-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:stretch;margin-top:38px}
+.ab-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ab-num{
+  background:#fff;border:1px solid rgba(201,161,94,.24);border-radius:14px;padding:22px 20px;
+  box-shadow:0 14px 32px rgba(70,45,20,.06);transition:transform .25s,box-shadow .25s;
+}
+.ab-num:hover{transform:translateY(-3px);box-shadow:0 22px 46px rgba(70,45,20,.11)}
+.ab-num b{display:block;font-family:var(--font-serif);font-size:34px;color:var(--red);line-height:1.05}
+.ab-num b small{font-size:14px;font-family:inherit;margin-left:2px;color:var(--red)}
+.ab-num span{display:block;margin-top:8px;font-size:13px;color:var(--text)}
+.ab-num i{display:block;margin-top:6px;font-style:normal;font-size:11px;color:var(--muted)}
+
+.ab-rings{
+  background:linear-gradient(160deg,#FFFDF9,#FBF2E8);border:1px solid rgba(201,161,94,.28);
+  border-radius:16px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;gap:6px;
+  box-shadow:0 16px 38px rgba(70,45,20,.07);
+}
+.ab-rings h4{margin:0 0 12px;font-size:13px;color:var(--ink);letter-spacing:.06em;font-weight:600}
+.ab-ring-row{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+.ab-ring{width:74px;height:74px;flex:0 0 74px}
+.ab-ring circle{fill:none;stroke-width:7;stroke-linecap:round}
+.ab-ring .bgc{stroke:rgba(166,30,40,.10)}
+.ab-ring .fgc{stroke:#A61E28;stroke-dasharray:176;stroke-dashoffset:176;transition:stroke-dashoffset 1.4s cubic-bezier(.3,.8,.3,1)}
+.ab-ring .bgc2{stroke:rgba(201,161,94,.18)}
+.ab-ring .fgc2{stroke:#C9A15E}
+.ab-rings.in .fgc{stroke-dashoffset:var(--off)}
+.ab-ring-lb b{display:block;font-family:var(--font-serif);font-size:22px;color:var(--ink);line-height:1.2}
+.ab-ring-lb span{font-size:11.5px;color:var(--muted);line-height:1.6;display:block;margin-top:4px}
+
+/* ---------- 四、培养体系 ---------- */
+.ab-cult{padding:64px 0 60px}
+.ab-cult-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.ab-ccard{
+  background:#fff;border:1px solid rgba(201,161,94,.24);border-radius:16px;padding:24px 22px;
+  box-shadow:0 16px 36px rgba(70,45,20,.06);position:relative;overflow:hidden;
+  transition:transform .26s,box-shadow .26s;
+}
+.ab-ccard:hover{transform:translateY(-3px);box-shadow:0 24px 50px rgba(70,45,20,.11)}
+.ab-tag{
+  display:inline-block;font-size:10.5px;letter-spacing:.14em;color:#8A6A2F;
+  border:1px solid rgba(201,161,94,.4);background:rgba(201,161,94,.08);border-radius:5px;
+  padding:2px 7px;margin-bottom:12px;
+}
+.ab-ccard h3{font-size:16.5px;color:var(--ink);margin:0 0 10px;line-height:1.5}
+.ab-ccard p{font-size:13px;line-height:1.85;color:var(--text);margin:0}
+.ab-stat{display:flex;align-items:baseline;gap:6px;margin-top:16px;padding-top:14px;border-top:1px dashed rgba(201,161,94,.3)}
+.ab-stat b{font-family:var(--font-serif);font-size:26px;color:var(--red);line-height:1}
+.ab-stat span{font-size:11.5px;color:var(--muted)}
+
+/* ---------- CTA ---------- */
+.ab-cta{padding:0 0 78px;text-align:center}
+.ab-cta .ab-cta-box{
+  background:linear-gradient(120deg,rgba(255,255,255,.92),rgba(255,248,240,.92));
+  border:1px solid rgba(201,161,94,.3);border-radius:18px;padding:34px 24px;
+  box-shadow:0 20px 46px rgba(70,45,20,.08);
+}
+.ab-cta h3{margin:0 0 8px;font-size:19px;color:var(--ink)}
+.ab-cta p{margin:0 0 20px;font-size:13.5px;color:var(--text)}
+
+/* ---------- 山脊分隔 ---------- */
+.ridge{height:26px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 26' preserveAspectRatio='none'%3E%3Cpath d='M0,16 C120,4 240,26 360,12 C480,-2 600,22 720,10 C840,-2 960,24 1080,10 C1200,-2 1320,22 1440,12 L1600,16' fill='none' stroke='%238B5E3C' stroke-width='1'/%3E%3C/svg%3E") center/1600px 26px no-repeat;opacity:.16;margin:6px 0}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1100px){
+  .ab-grid{grid-template-columns:1fr;gap:30px}
+  .ab-num-grid{grid-template-columns:1fr}
+  .tl-track{grid-template-columns:repeat(3,1fr);row-gap:34px}
+  .tl-track::before{display:none}
+}
+@media (max-width:820px){
+  .ab-hero-facts{grid-template-columns:1fr;margin-top:-26px}
+  .ab-cult-grid{grid-template-columns:1fr}
+  .ab-cards{grid-template-columns:1fr 1fr}
+  .pf-band{height:250px}
+  .pf-in .container{flex-direction:column;align-items:flex-start;gap:10px}
+  .pf-note{text-align:left}
+  .pf-title{font-size:22px}
+  .ab-mtn{top:180px;height:1100px}
+  .ab-hero-year{display:none}
+  .ab-text{padding:22px 20px}
+  .tl-track{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .ab-cards{grid-template-columns:1fr}
+  .tl-track{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .mtn{transform:none!important}
+  .ab-ring .fgc{stroke-dashoffset:var(--off)}
+}

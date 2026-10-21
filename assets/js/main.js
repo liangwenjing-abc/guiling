@@ -119,7 +119,15 @@
       var im = it.querySelector('img');
       lbImg.src = im.dataset.full || im.src;
       lbImg.alt = im.alt || '';
-      lbCap.textContent = im.alt || '';
+      var d = it.dataset || {};
+      var title = d.title || im.alt || '';
+      lbCap.innerHTML =
+        (d.cat ? '<span class="lc-cat">' + d.cat + '</span>' : '') +
+        '<div class="lc-body">' +
+          '<h3 class="lc-title">' + title + '</h3>' +
+          (d.desc ? '<p class="lc-desc">' + d.desc + '</p>' : '') +
+          (d.place ? '<p class="lc-place">' + d.place + '</p>' : '') +
+        '</div>';
       lbCount.textContent = (cur + 1) + ' / ' + vs.length;
     }
     function openLb(item) {

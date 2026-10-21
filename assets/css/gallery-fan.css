@@ -1,0 +1,183 @@
+/* ============================================================
+   遇见桂信科 · 校园相册「扇形封面流」
+   - 中心卡正对、最大最亮；两侧按距离逐级旋转/缩小/降亮
+   - 切换时整组连续转动（transform 过渡，不跳步）
+   - 点击中心卡放大，看大图 + 简介
+   ============================================================ */
+
+.fan-section{position:relative;overflow:clip}
+.fan-lock{overflow:hidden}
+
+/* ---------- 舞台 ---------- */
+.fan-stage{
+  position:relative;height:clamp(290px,34vw,450px);
+  perspective:1700px;perspective-origin:50% 46%;
+  margin:10px 0 6px;outline:none;
+  touch-action:pan-y;              /* 允许纵向滚动，横向拖动交给卡片 */
+  cursor:grab;
+}
+.fan-stage:active{cursor:grabbing}
+.fan-stage.is-dragging .fan-card{transition:none!important}
+
+/* 舞台后方暖光，让卡片"浮"起来 */
+.fan-glow{
+  position:absolute;left:50%;top:50%;width:min(1100px,92vw);height:78%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(201,161,94,.22),rgba(201,161,94,.06) 55%,rgba(201,161,94,0) 78%);
+  pointer-events:none;
+}
+
+.fan-track{position:absolute;inset:0;transform-style:preserve-3d}
+
+/* ---------- 卡片 ---------- */
+.fan-card{
+  position:absolute;left:50%;top:50%;
+  width:clamp(280px,36vw,520px);aspect-ratio:3/2;margin:0;
+  border-radius:16px;overflow:hidden;background:#E9E0D2;
+  box-shadow:0 18px 44px rgba(40,28,16,.22),0 2px 0 rgba(255,255,255,.4) inset;
+  transform:translate(-50%,-50%);
+  transition:transform .68s cubic-bezier(.22,.61,.36,1),filter .5s ease,
+             opacity .5s ease,box-shadow .5s ease;
+  will-change:transform,filter,opacity;
+  cursor:pointer;user-select:none;-webkit-user-drag:none;
+  backface-visibility:hidden;
+}
+.fan-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+.fan-card.is-active{
+  cursor:zoom-in;
+  box-shadow:0 34px 70px rgba(40,28,16,.34),0 0 0 1px rgba(255,255,255,.5) inset;
+}
+.fan-card:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* 卡面信息 */
+.fan-cat{
+  position:absolute;left:12px;top:12px;z-index:2;
+  background:rgba(255,255,255,.94);color:var(--red);
+  font-size:11.5px;letter-spacing:.4px;padding:4px 9px;border-radius:999px;
+  box-shadow:0 4px 12px rgba(40,28,16,.16);
+}
+.fan-cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  padding:34px 16px 14px;color:#fff;
+  background:linear-gradient(to top,rgba(18,14,10,.78),rgba(18,14,10,.34) 45%,rgba(18,14,10,0));
+  opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s;
+  display:flex;align-items:baseline;gap:8px;
+}
+.fan-card.is-active .fan-cap{opacity:1;transform:none}
+.fan-cap b{font-size:16px;font-weight:700;letter-spacing:.3px}
+.fan-cap span{font-size:12px;opacity:.82}
+
+/* 左右按钮 */
+.fan-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:120;
+  width:46px;height:46px;border-radius:50%;border:1px solid rgba(166,30,40,.18);
+  background:rgba(255,255,255,.92);color:var(--red);font-size:22px;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 10px 26px rgba(40,28,16,.16);
+  transition:transform .2s,background .2s,color .2s,box-shadow .25s;
+}
+.fan-nav:hover{background:var(--red);color:#fff;transform:translateY(-50%) scale(1.06);box-shadow:0 14px 30px rgba(166,30,40,.32)}
+.fan-nav:active{transform:translateY(-50%) scale(.97)}
+.fan-prev{left:clamp(8px,2.6vw,48px)}
+.fan-next{right:clamp(8px,2.6vw,48px)}
+
+/* ---------- 圆点 + 计数 ---------- */
+.fan-bar{display:flex;align-items:center;justify-content:center;gap:16px;margin:6px 0 0}
+.fan-dots{display:flex;align-items:center;gap:8px}
+.fan-dots button{
+  width:8px;height:8px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(166,30,40,.22);transition:width .3s,background .3s;
+}
+.fan-dots button.on{width:26px;border-radius:999px;background:var(--red)}
+.fan-count{font-size:12.5px;color:var(--muted);letter-spacing:1px;font-variant-numeric:tabular-nums}
+.fan-count b{color:var(--red);font-size:15px}
+.fan-hint{text-align:center;font-size:12.5px;color:var(--muted);margin:10px 0 0;letter-spacing:.2px}
+
+/* ============================================================
+   放大查看
+   ============================================================ */
+.fan-modal{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(12px,3vw,40px);
+  background:rgba(14,11,9,.90);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.fan-modal.open{opacity:1;pointer-events:auto}
+.fan-modal-box{
+  width:min(1080px,100%);max-height:calc(100vh - 2 * clamp(12px,3vw,40px));
+  display:flex;flex-direction:column;
+  background:#12100E;border-radius:18px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 40px 90px rgba(0,0,0,.55);
+  transform:translateY(14px) scale(.985);transition:transform .35s cubic-bezier(.2,.8,.3,1.05);
+}
+.fan-modal.open .fan-modal-box{transform:none}
+.fan-modal-imgwrap{
+  position:relative;background:#0C0A09;flex:1 1 auto;min-height:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.fan-modal-img{
+  display:block;max-width:100%;max-height:100%;
+  width:auto;height:auto;object-fit:contain;
+}
+.fan-modal-info{
+  flex:0 0 auto;padding:20px 26px 24px;color:#fff;background:linear-gradient(180deg,#171310,#12100E);
+  border-top:1px solid rgba(201,161,94,.22);
+}
+.fan-modal-cat{
+  display:inline-block;font-size:11.5px;letter-spacing:.5px;color:#0F0D0B;
+  background:var(--gold);padding:3px 9px;border-radius:999px;margin-bottom:10px;
+}
+.fan-modal-title{font-size:clamp(19px,2.2vw,25px);color:#fff;margin:0 0 8px;letter-spacing:.3px}
+.fan-modal-desc{font-size:14px;line-height:1.85;color:rgba(255,255,255,.78);margin:0;max-width:62em}
+.fan-modal-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.10);
+  font-size:12.5px;color:rgba(255,255,255,.55);
+}
+.fan-modal-foot a{color:var(--gold-soft);border-bottom:1px dashed rgba(201,161,94,.45)}
+.fan-x{
+  position:absolute;right:16px;top:14px;z-index:3;
+  width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(255,255,255,.14);color:#fff;font-size:16px;line-height:1;
+  display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;
+}
+.fan-x:hover{background:rgba(255,255,255,.28);transform:rotate(90deg)}
+.fan-mnav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.22);
+  background:rgba(20,17,14,.55);color:#fff;font-size:24px;line-height:1;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .2s,border-color .2s,transform .2s;
+  backdrop-filter:blur(6px);
+}
+.fan-mnav:hover{background:rgba(166,30,40,.85);border-color:transparent}
+.fan-mprev{left:14px}
+.fan-mnext{right:14px}
+
+/* ---------- 平板 / 手机 ---------- */
+@media (max-width:1024px){
+  .fan-prev{left:10px}
+  .fan-next{right:10px}
+}
+@media (max-width:720px){
+  .fan-stage{height:clamp(240px,64vw,340px);perspective:1100px}
+  .fan-card{width:74vw;border-radius:13px}
+  .fan-nav{width:38px;height:38px;font-size:18px}
+  .fan-prev{left:4px}
+  .fan-next{right:4px}
+  .fan-cap{padding:26px 12px 11px}
+  .fan-cap b{font-size:14px}
+  .fan-cap span{display:none}
+  .fan-modal-box{border-radius:14px}
+  .fan-modal-info{padding:16px 16px 18px}
+  .fan-modal-desc{font-size:13px;line-height:1.8}
+  .fan-mnav{width:40px;height:40px;font-size:20px}
+  .fan-mprev{left:6px}
+  .fan-mnext{right:6px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fan-card,.fan-modal,.fan-modal-box{transition-duration:.01ms!important}
+}

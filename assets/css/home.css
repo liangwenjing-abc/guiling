@@ -1,0 +1,101 @@
+/* ============================================================
+   首页新增：校园服务入口 / 办学成果里的就业率小图 / 新闻外链
+   ============================================================ */
+
+/* ---------- 校园服务入口 ---------- */
+.svc-entry{background:#FAF7F1}
+.se-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.se-card{
+  position:relative;display:block;background:#fff;border:1px solid rgba(201,161,94,.28);
+  border-radius:18px;padding:24px 24px 22px;overflow:hidden;text-decoration:none;
+  box-shadow:0 16px 40px rgba(70,45,20,.07);
+  transition:transform .26s cubic-bezier(.2,.8,.3,1),box-shadow .26s,border-color .26s;
+}
+.se-card::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--red),rgba(166,30,40,.15));
+  opacity:0;transition:opacity .26s;
+}
+.se-card:hover{transform:translateY(-4px);box-shadow:0 26px 56px rgba(70,45,20,.13);border-color:rgba(166,30,40,.3)}
+.se-card:hover::before{opacity:1}
+.se-key{
+  position:absolute;right:18px;top:12px;font-family:var(--font-serif);font-size:54px;
+  line-height:1;color:rgba(201,161,94,.16);letter-spacing:-2px;
+}
+.se-ico{
+  width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,#F8EFE6,#F2E4D8);color:var(--red);margin-bottom:14px;
+  transition:background .3s,color .3s;
+}
+.se-ico svg{width:23px;height:23px}
+.se-card:hover .se-ico{background:linear-gradient(150deg,#B4232E,#8A161F);color:#fff}
+.se-card h3{font-size:17px;color:var(--ink);margin:0 0 8px;letter-spacing:.2px}
+.se-card p{font-size:13px;color:var(--text);line-height:1.75;margin:0 0 14px;min-height:44px}
+.se-enter{
+  display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--red);letter-spacing:.3px;
+}
+.se-enter i{font-style:normal;transition:transform .25s}
+.se-card:hover .se-enter i{transform:translateX(4px)}
+.se-note{margin-top:18px;font-size:12px;color:var(--muted);text-align:center}
+
+/* ---------- 办学成果里的就业率小图 ---------- */
+.honor-chart{
+  display:grid;grid-template-columns:auto 1fr auto;gap:26px;align-items:center;
+  margin-top:26px;padding:20px 24px;border-radius:16px;
+  background:linear-gradient(120deg,#FFFCF7,#FFF8EF);
+  border:1px solid rgba(201,161,94,.3);
+  box-shadow:0 14px 34px rgba(70,45,20,.06);
+}
+.hc-left .hc-k{display:block;font-size:12px;color:var(--muted);letter-spacing:.4px;margin-bottom:6px}
+.hc-left strong{
+  font-family:var(--font-serif);font-size:38px;line-height:1;color:var(--red);letter-spacing:-1px;
+}
+.hc-left strong small{font-size:16px;margin-left:2px}
+.hc-left .hc-note{display:block;font-size:11.5px;color:var(--text);margin-top:8px;line-height:1.6;max-width:24em}
+.hc-spark{width:100%;height:auto;max-height:82px;display:block}
+.hc-spark path.line{fill:none;stroke:#A61E28;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:520;stroke-dashoffset:520;transition:stroke-dashoffset 1.6s ease .2s}
+.hc-spark path.area{fill:url(#hcGrad);opacity:0;transition:opacity .9s ease .6s}
+.hc-spark circle{opacity:0;transition:opacity .4s ease 1.2s}
+.honor-chart.in .hc-spark path.line{stroke-dashoffset:0}
+.honor-chart.in .hc-spark path.area{opacity:1}
+.honor-chart.in .hc-spark circle{opacity:1}
+.hc-more{
+  font-size:12.5px;color:var(--red);white-space:nowrap;border-bottom:1px dashed rgba(166,30,40,.4);
+  padding-bottom:2px;text-decoration:none;
+}
+.hc-more:hover{color:var(--red-2)}
+
+/* ---------- 新闻：外链样式 ---------- */
+a.news-item{text-decoration:none}
+a.news-item .n-title{transition:color .2s}
+a.news-item:hover .n-title{color:var(--red)}
+.n-out{
+  font-size:11px;color:var(--muted);white-space:nowrap;padding-top:4px;margin-left:10px;
+  display:inline-flex;align-items:center;gap:3px;transition:color .2s;
+}
+a.news-item:hover .n-out{color:var(--red)}
+.news-head{
+  display:block;padding:20px 22px;margin-bottom:6px;border-radius:14px;text-decoration:none;
+  background:linear-gradient(120deg,#FFF8F2,#FFFAF6);border:1px solid rgba(201,161,94,.3);
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+}
+.news-head:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(70,45,20,.1);border-color:rgba(166,30,40,.28)}
+.nh-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.nh-date{font-size:12px;color:var(--red);font-weight:700;font-variant-numeric:tabular-nums}
+.nh-tag{font-size:10.5px;color:#8A6A2F;border:1px solid rgba(201,161,94,.4);background:rgba(201,161,94,.08);
+  border-radius:4px;padding:1px 6px}
+.nh-title{display:block;font-size:16.5px;line-height:1.55;color:var(--ink);font-weight:700;letter-spacing:.2px}
+.news-head:hover .nh-title{color:var(--red)}
+.nh-more{display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:12px;color:var(--gold-2)}
+
+@media (max-width:1000px){
+  .se-grid{grid-template-columns:1fr}
+  .se-card p{min-height:0}
+  .honor-chart{grid-template-columns:1fr;gap:14px}
+  .hc-spark{height:60px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hc-spark path.line{stroke-dashoffset:0}
+  .hc-spark path.area,.hc-spark circle{opacity:1}
+}

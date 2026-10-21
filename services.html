@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>校园服务 | 遇见桂信科 · 桂林信息科技学院</title>
+<meta name="description" content="桂信科校园服务：办事指引（材料/时间/地点）、报修登记与进度看板、生活服务网点与常用电话。">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/polish.css">
+<link rel="stylesheet" href="assets/css/assistant.css">
+<link rel="stylesheet" href="assets/css/mtn-bg.css">
+<link rel="stylesheet" href="assets/css/services.css">
+<link rel="stylesheet" href="assets/css/repair.css">
+<link rel="stylesheet" href="assets/css/services-page.css">
+</head>
+<body class="pg-services">
+
+<div class="topbar" id="topbar">
+  <div class="container">
+    <span>🎓 校园卡丢了？材料没带全？先查一下再跑一趟 → <a href="#tab-a">办事指引</a></span>
+    <button class="tb-close" title="关闭" aria-label="关闭">✕</button>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="assets/img/logo-red.png" alt="桂林信息科技学院"></a>
+    <nav class="nav-menu">
+      <a href="index.html">首页</a>
+      <a href="about.html">走进信科</a>
+      <a href="majors.html">院系与专业</a>
+      <a href="honors.html">办学成果</a>
+      <a href="campus.html">校园相册</a>
+      <a href="route.html">校园路线</a>
+      <a href="services.html" class="active">校园服务</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+    <button class="nav-burger" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <img src="assets/img/banner-b.jpg" alt="桂林信息科技学院校园">
+  <div class="container">
+    <h1>校园服务</h1>
+    <div class="crumb"><a href="index.html">首页</a> / 校园服务</div>
+    <p class="p-sub">办事要带什么、坏了怎么报、生活去哪儿——一页查清楚。</p>
+  </div>
+</section>
+
+<div class="mtn-top" aria-hidden="true">
+  <span class="mtn-hills"></span>
+  <span class="ginkgo g-sm"></span>
+  <span class="ginkgo g-lg"></span>
+</div>
+
+<section class="pg-band bright b-services" aria-label="办一张卡、报一次修，都在这一片">
+  <div class="pg-in">
+    <div class="container">
+      <div><div class="pg-kicker">SERVICE · 一站式</div><h2 class="pg-title">办一张卡、报一次修，<br>都在这一片</h2></div>
+      <div class="pg-note"><b>一站式学生服务中心</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="svc-tabbar" id="svcTabbar">
+  <div class="container">
+    <nav class="svc-tabs" role="tablist" aria-label="校园服务分类">
+      <button type="button" class="svc-tab on" data-target="tab-a" role="tab" aria-selected="true">A · 办事指引</button>
+      <button type="button" class="svc-tab" data-target="tab-b" role="tab" aria-selected="false">B · 报修登记</button>
+      <button type="button" class="svc-tab" data-target="tab-c" role="tab" aria-selected="false">C · 生活网点</button>
+    </nav>
+    <span class="svc-tab-note">数据整理自学校官网 / 现场信息，具体以最新通知为准</span>
+  </div>
+</div>
+
+<!-- ========== A · 办事指引 ========== -->
+<section class="section svc-panel" id="tab-a" data-panel>
+  <div class="container" id="services">
+    <div class="sec-head">
+      <span class="eyebrow">办事指引 · SERVICE GUIDE</span>
+      <h2 class="sec-title">要办事？材料、时间、地点，一页看全</h2>
+      <p class="sec-sub">校园卡、学生证、报修、资助、校医室——五类最常用业务。勾选材料当出门前的自查表；缺哪一项，点「没有？」看能不能先办、去哪儿补。</p>
+    </div>
+    <div class="svc-cats" id="svcCats"></div>
+    <div class="svc-wrap">
+      <div class="svc-list" id="svcList" aria-label="业务清单"></div>
+      <div class="svc-detail" id="svcDetail" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== B · 报修登记 ========== -->
+<section class="section svc-panel" id="tab-b" data-panel hidden>
+  <div class="container" id="repair">
+    <div class="sec-head">
+      <span class="eyebrow">报修登记 · REPAIR</span>
+      <h2 class="sec-title">坏了就报，进度看得见</h2>
+      <p class="sec-sub">宿舍桌椅、灯管、空调、门锁、机房设备——拍照上传，AI 帮你认出是什么故障、把描述写清楚；提交后在看板上跟进度。</p>
+    </div>
+
+    <div class="rp-kpi" id="rpKpi"></div>
+
+    <div class="rp-wrap">
+      <section class="rp-card">
+        <h3>提交报修</h3>
+        <p class="rp-sub">一分钟填完，师傅按单上门</p>
+
+        <div class="rp-field">
+          <label class="rp-lbl" for="rpArea">位置<b>*</b></label>
+          <div class="rp-row">
+            <select class="rp-select" id="rpArea" style="max-width:154px">
+              <option>中苑宿舍</option><option>北苑宿舍</option><option>西苑宿舍</option>
+              <option>博文楼</option><option>崇德楼</option><option>知行楼</option>
+              <option>机房</option><option>食堂</option><option>公共区域</option>
+            </select>
+            <input class="rp-input" id="rpAreaSub" placeholder="楼栋 / 房间号，例如 3 栋 402">
+          </div>
+        </div>
+
+        <div class="rp-field">
+          <span class="rp-lbl">故障类型</span>
+          <div class="rp-types" id="rpTypes"></div>
+        </div>
+
+        <div class="rp-field">
+          <label class="rp-lbl" for="rpDesc">故障描述<b>*</b></label>
+          <textarea class="rp-area" id="rpDesc" placeholder="例如：书桌抽屉滑轨断了，抽屉掉下来卡住"></textarea>
+        </div>
+
+        <div class="rp-field">
+          <span class="rp-lbl">现场照片（可选，AI 能自动识别）</span>
+          <label class="rp-upload" for="rpFile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+            点这里上传照片
+            <input type="file" id="rpFile" accept="image/*">
+          </label>
+          <div class="rp-preview" id="rpPreview">
+            <img alt="现场照片预览">
+            <button type="button" class="rp-clear" id="rpClear" aria-label="移除照片">✕</button>
+          </div>
+          <button type="button" class="rp-ai" id="rpAi">✨ AI 识别故障并生成描述</button>
+          <p class="rp-ai-msg" id="rpAiMsg"></p>
+        </div>
+
+        <div class="rp-field">
+          <span class="rp-lbl">紧急程度</span>
+          <div class="rp-types">
+            <button type="button" class="rp-type urg on" data-u="普通">普通 · 不影响安全</button>
+            <button type="button" class="rp-type urg" data-u="紧急">紧急 · 漏水 / 断电 / 安全隐患</button>
+          </div>
+        </div>
+
+        <button type="button" class="rp-submit" id="rpSubmit">提交报修（本地记录）</button>
+        <p class="rp-hint" id="rpFormMsg">演示用：报修单只保存在本机浏览器，不会推送到后勤系统。</p>
+      </section>
+
+      <section class="rp-card">
+        <div class="rp-board-head">
+          <h3 style="margin:0">报修看板</h3>
+          <div class="rp-tabs">
+            <button type="button" class="rp-tab on" data-st="全部">全部</button>
+            <button type="button" class="rp-tab" data-st="待处理">待处理</button>
+            <button type="button" class="rp-tab" data-st="处理中">处理中</button>
+            <button type="button" class="rp-tab" data-st="已完成">已完成</button>
+          </div>
+        </div>
+        <div class="rp-list" id="rpList"></div>
+      </section>
+    </div>
+
+    <p class="rp-foot">Demo 边界：报修单仅本地记录与展示（localStorage），状态可点击推进用于演示流程；<b>不推送后勤系统、不做消息通知</b>。正式使用需对接学校后勤工单系统。</p>
+  </div>
+</section>
+
+<!-- ========== C · 生活网点 ========== -->
+<section class="section svc-panel" id="tab-c" data-panel hidden>
+  <div class="container">
+    <div class="sec-head">
+      <span class="eyebrow">生活网点 · ON CAMPUS</span>
+      <h2 class="sec-title">吃、买、寄、印、充值，都在哪儿</h2>
+      <p class="sec-sub">校园里的生活服务点位与常用电话。具体营业时间以现场公示为准，我们会持续补充。</p>
+    </div>
+
+    <div class="sp-grid">
+      <article class="sp-card">
+        <span class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 10h16M5 10a7 7 0 0114 0"/><path d="M6 10v9h12v-9"/><path d="M9.5 14h5"/></svg></span>
+        <h3>学生食堂</h3>
+        <div class="sp-sub">CANTEEN</div>
+        <p>校园内设多个食堂与档口，午餐、晚餐高峰人流集中，建议错峰 15 分钟。</p>
+        <span class="sp-tag">营业时间以现场公示为准</span>
+      </article>
+
+      <article class="sp-card">
+        <span class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 9h16l-1.2 9.2a2 2 0 01-2 1.8H7.2a2 2 0 01-2-1.8L4 9z"/><path d="M9 9V6.5a3 3 0 016 0V9"/></svg></span>
+        <h3>校园超市</h3>
+        <div class="sp-sub">SUPERMARKET</div>
+        <p>教学楼下生活服务街设有超市，日常用品、零食饮料、文具都能买到。</p>
+        <span class="sp-tag">生活服务街</span>
+      </article>
+
+      <article class="sp-card">
+        <span class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8.5l9-4.5 9 4.5-9 4.5-9-4.5z"/><path d="M3 8.5V16l9 4.5 9-4.5V8.5"/><path d="M12 13v7.5"/></svg></span>
+        <h3>快递收发</h3>
+        <div class="sp-sub">PARCEL</div>
+        <p>校园快递点集中收发，取件带取件码；大件建议错开中午高峰。</p>
+        <span class="sp-tag">点位以短信通知为准</span>
+      </article>
+
+      <article class="sp-card">
+        <span class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 8V4h10v4"/><rect x="4" y="8" width="16" height="8" rx="1.6"/><path d="M7 16h10v4H7z"/></svg></span>
+        <h3>打印复印</h3>
+        <div class="sp-sub">PRINT</div>
+        <p>论文、证明材料、报名表都能打印复印，现场可扫码付款。</p>
+        <span class="sp-tag">商业街</span>
+      </article>
+
+      <article class="sp-card">
+        <span class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18"/><path d="M6.5 14.5h4"/></svg></span>
+        <h3>一卡通充值</h3>
+        <div class="sp-sub">CAMPUS CARD</div>
+        <p>充值、挂失、补办都在一站式学生服务中心「信网服务」窗口，补卡工本费 15 元。</p>
+        <span class="sp-tag">一站式服务中心</span>
+      </article>
+
+      <article class="sp-card">
+        <span class="sp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4.5v15M4.5 12h15"/></svg></span>
+        <h3>校医室</h3>
+        <div class="sp-sub">CLINIC</div>
+        <p>位置在红色操场旁边，日常门诊、简单处置与转诊都可以在这里处理。</p>
+        <span class="sp-tag">9:00–12:00 / 14:00–20:00</span>
+      </article>
+    </div>
+
+    <div class="sp-phones">
+      <h3>常用电话</h3>
+      <div class="sp-phone-list">
+        <div class="sp-phone"><b>党委学生工作部（教育管理 / 资助 / 档案）</b><span>0773-8100530</span></div>
+        <div class="sp-phone"><b>学生工作部办公室</b><span>0773-8100529</span></div>
+        <div class="sp-phone"><b>心理咨询室</b><span>0773-8100525</span></div>
+        <div class="sp-phone"><b>校团委办公室</b><span>0773-8100527</span></div>
+      </div>
+      <p class="sp-note">以上电话来自学校官网「党委学生工作部」页面；招生咨询请拨 0773-8100501～8100508。后勤维修值班电话以宿舍楼内公示为准。</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="f-grid">
+      <div class="f-brand">
+        <img src="assets/img/logo-white.png" alt="桂林信息科技学院">
+        <p>遇见桂信科 —— 桂林信息科技学院校园风采展示网站。本网站为在校学生参加“AI创想桂信科”AI应用创意赛道的参赛作品，内容与图片来源为学校官网及公开资料。</p>
+      </div>
+      <div>
+        <div class="f-title">快速导航</div>
+        <ul class="f-links">
+          <li><a href="index.html">首页</a></li>
+          <li><a href="about.html">走进信科</a></li>
+          <li><a href="majors.html">院系与专业</a></li>
+          <li><a href="honors.html">办学成果</a></li>
+          <li><a href="campus.html">校园相册</a></li>
+          <li><a href="route.html">校园路线</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-title">联系方式</div>
+        <ul class="f-contact">
+          <li><b>校址：</b>广西桂林市临桂区岩图路9号（邮编 541100）</li>
+          <li><b>招生热线：</b>0773-8100501 / 8100502 / 8100503 / 8100506 / 8100508</li>
+          <li><b>学校邮箱：</b>xxkjxy@guet.edu.cn　<b>党政办：</b>0773-8100550</li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-title">官方平台</div>
+        <ul class="f-links">
+          <li><a href="https://www.guit.edu.cn/" target="_blank" rel="noopener">学校官网 www.guit.edu.cn</a></li>
+          <li><a href="https://www.guit.edu.cn/zs/" target="_blank" rel="noopener">招生网</a></li>
+          <li><a href="https://www.guit.edu.cn/xjy/" target="_blank" rel="noopener">就业网</a></li>
+          <li><a href="contact.html">官方微信二维码</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span class="js-year">2026</span> 遇见桂信科 · 学生参赛作品（AI创想桂信科 · AI应用创意赛道）</span>
+      <span>内容与图片来源：桂林信息科技学院官网（数据统计至 2026 年 6 月）· 如与官方信息不一致，以学校官网为准</span>
+    </div>
+  </div>
+</footer>
+
+<button class="backtop" aria-label="返回顶部">↑</button>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/route.js"></script>
+<script src="assets/js/assistant.js"></script>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/assistant.js"></script>
+<script src="assets/js/services.js"></script>
+<script src="assets/js/repair.js"></script>
+<script src="assets/js/services-page.js"></script>
+</body>
+</html>
